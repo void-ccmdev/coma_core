@@ -1,4 +1,4 @@
-extends Node
+class_name GlobalScript extends Node
 
 const DEFAULT_SENSITIVITY : float = 0.005
 var current_sensitivity : float = DEFAULT_SENSITIVITY

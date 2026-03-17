@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8c005i0y36v8"]
 
-[ext_resource type="Script" uid="uid://b0yxfjx8iajhn" path="res://scripts/player/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://b0yxfjx8iajhn" path="res://scripts/player/player_controller.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cemnyk61005a5" path="res://scripts/player/camera_controller.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://0agam8m6rrqe" path="res://scripts/player/camera_effects.gd" id="3_qhqgy"]
 
