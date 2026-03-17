@@ -13,7 +13,7 @@ config_version=5
 config/name="ComaCore"
 run/main_scene="uid://slntuiqexwsy"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://textures/icon.svg"
+config/icon="uid://bo5uagwuuhchq"
 
 [audio]
 
