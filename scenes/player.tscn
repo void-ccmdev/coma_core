@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0yxfjx8iajhn" path="res://scripts/player/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cemnyk61005a5" path="res://scripts/player/camera_controller.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://0agam8m6rrqe" path="res://scripts/player/camera_effects.gd" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 radius = 0.25
@@ -18,4 +19,6 @@ shape = SubResource("CapsuleShape3D_u8vuu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 script = ExtResource("2_g2els")
 
-[node name="CameraEffects" type="Camera3D" parent="CameraController" unique_id=963066867]
+[node name="CameraEffects" type="Camera3D" parent="CameraController" unique_id=963066867 node_paths=PackedStringArray("player")]
+script = ExtResource("3_qhqgy")
+player = NodePath("../..")
