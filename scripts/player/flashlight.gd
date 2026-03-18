@@ -11,6 +11,12 @@ class_name Flashlight extends SpotLight3D
 func _ready() -> void:
 	print("Flashlight Script Loaded!")
 
+	if on:
+		self.show()
+	else:
+		self.hide()
+
+			
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("flashlight"):
 		if on:
