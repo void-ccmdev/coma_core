@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dng3ppu6m8xg5" path="res://textures/flashlightcookie.jpg" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bjpmu5sklv5h8" path="res://addons/raytraced_audio/raytraced_audio_listener.gd" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://d3m7d7ecsvmpp" path="res://scripts/player/flashlight.gd" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://cd3wjnv7u0ys4" path="res://audio/sfx/flashlight.mp3" id="7_smehm"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="8_ur7pv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 radius = 0.25
@@ -26,13 +28,15 @@ script = ExtResource("2_g2els")
 script = ExtResource("3_qhqgy")
 player = NodePath("../..")
 
-[node name="RaytracedAudioListener" type="AudioListener3D" parent="CameraController/CameraEffects" unique_id=1799819507]
+[node name="RaytracedAudioListener" type="AudioListener3D" parent="CameraController/CameraEffects" unique_id=1853710910]
 doppler_tracking = 2
 current = true
 script = ExtResource("4_qlg0r")
+muffle_interpolation = 0.19
+echo_interpolation = 0.16
 metadata/_custom_type_script = "uid://bjpmu5sklv5h8"
 
-[node name="Flashlight" type="SpotLight3D" parent="CameraController" unique_id=2133561910 node_paths=PackedStringArray("parent")]
+[node name="Flashlight" type="SpotLight3D" parent="CameraController" unique_id=2133561910 node_paths=PackedStringArray("parent", "audio_node")]
 light_energy = 16.0
 light_projector = ExtResource("4_dqkch")
 shadow_enabled = true
@@ -41,3 +45,14 @@ spot_angle = 30.264591
 script = ExtResource("6_tuyoq")
 on = false
 parent = NodePath("../CameraEffects")
+audio_node = NodePath("Audio")
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="CameraController/Flashlight" unique_id=2103957511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.318967, 0, -0.37239093)
+stream = ExtResource("7_smehm")
+max_db = 6.0
+panning_strength = 1.29
+bus = &"RaytracedReverb"
+doppler_tracking = 2
+script = ExtResource("8_ur7pv")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
