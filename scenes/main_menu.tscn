@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://0y8e7sfvt8un"]
+
+[ext_resource type="Theme" uid="uid://c2tbwdq2h21sf" path="res://themes/menu_basic_theme.theme" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://k40h0ehqjmlq" path="res://fonts/grapple.ttf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://2gb05wiib87c" path="res://scripts/immersive_button.gd" id="3_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://5iamat2fce10" path="res://audio/sfx/button_hover.mp3" id="4_wu84c"]
+[ext_resource type="AudioStream" uid="uid://c04ktjmsc6dy3" path="res://audio/sfx/button_unhover.mp3" id="5_8ln24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vue75"]
+font = ExtResource("1_l6cm7")
+font_size = 33
+font_color = Color(0.3396053, 0.5426322, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Node3D" unique_id=1282798767]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=275415303]
+
+[node name="UI" type="Control" parent="." unique_id=2134255314]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="UI" unique_id=1385900684]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ekxnf")
+
+[node name="Title" type="Label" parent="UI/Menu" unique_id=1057771528]
+layout_mode = 2
+text = "ComaCore"
+label_settings = SubResource("LabelSettings_vue75")
+
+[node name="PlayButton" type="Button" parent="UI/Menu" unique_id=780227746 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+layout_mode = 2
+text = "Play"
+script = ExtResource("3_bqqt6")
+hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+
+[node name="SettingsButton" type="Button" parent="UI/Menu" unique_id=581578675 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("3_bqqt6")
+hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+
+[node name="CreditsButton" type="Button" parent="UI/Menu" unique_id=1065937366 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+layout_mode = 2
+text = "Credits"
+script = ExtResource("3_bqqt6")
+hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+
+[node name="QuitButton" type="Button" parent="UI/Menu" unique_id=1404816112 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("3_bqqt6")
+hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+
+[node name="Audio" type="Node" parent="." unique_id=1325498635]
+
+[node name="ButtonPressedAudio" type="AudioStreamPlayer" parent="Audio" unique_id=1606324155]
+
+[node name="ButtonHoveredAudio" type="AudioStreamPlayer" parent="Audio" unique_id=1851939346]
+stream = ExtResource("4_wu84c")
+
+[node name="ButtonUnhoveredAudio" type="AudioStreamPlayer" parent="Audio" unique_id=1850292103]
+stream = ExtResource("5_8ln24")
