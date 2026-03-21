@@ -13,6 +13,9 @@
 [ext_resource type="Material" uid="uid://bl3d27fmoqcwr" path="res://materials/snow.material" id="5_lgwnu"]
 [ext_resource type="PackedScene" uid="uid://bu0quuh3tqv8h" path="res://models/road_sign1/road_sign_1.tscn" id="6_flqon"]
 [ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="7_rcqid"]
+[ext_resource type="Texture2D" uid="uid://cv6yb32o7wn4a" path="res://textures/platform_links/github_icon.png" id="11_7b55j"]
+[ext_resource type="Texture2D" uid="uid://dkvon8m5c3al1" path="res://textures/platform_links/itchio_icon.png" id="12_5pajh"]
+[ext_resource type="Texture2D" uid="uid://cv1uc0qnt8005" path="res://textures/platform_links/twitter_icon.png" id="13_j7ex8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ajci"]
 
@@ -61,6 +64,9 @@ outline_color = Color(0, 0, 0, 1)
 [node name="MainMenu" type="Node3D" unique_id=1282798767]
 script = ExtResource("1_oa1go")
 next_scene = ExtResource("2_tbmy8")
+github_link = "https://github.com/void-ccmdev"
+itchio_link = "https://void-ccmdev.itch.io/"
+twitter_link = "https://x.com/ccmdev_"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1026198000]
 transform = Transform3D(0.8922709, -0.39101094, 0.22575018, 2.7805946e-08, 0.49999994, 0.86602545, -0.4515005, -0.7727293, 0.44613537, 0, 0, 0)
@@ -88,7 +94,9 @@ transform = Transform3D(0.99360263, 0.07163261, -0.08730672, -0.071511626, 0.997
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007102728, 0.0045984387, -0.0010111332)
 mesh = SubResource("PlaneMesh_5pajh")
 
-[node name="UI" type="Control" parent="." unique_id=2134255314]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=555818554]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=2134255314]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,7 +104,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menu" type="VBoxContainer" parent="UI" unique_id=1385900684]
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1385900684]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,44 +119,91 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ekxnf")
 
-[node name="Title" type="Label" parent="UI/Menu" unique_id=1057771528]
+[node name="Title" type="Label" parent="CanvasLayer/UI/Menu" unique_id=1057771528]
 layout_mode = 2
 text = "ComaCore"
 label_settings = SubResource("LabelSettings_vue75")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayButton" type="Button" parent="UI/Menu" unique_id=780227746 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+[node name="PlayButton" type="Button" parent="CanvasLayer/UI/Menu" unique_id=780227746 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
 layout_mode = 2
 text = "Play"
 script = ExtResource("3_bqqt6")
-hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
-unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
-press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+hover_audio = NodePath("../../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../../Audio/ButtonPressedAudio")
 
-[node name="SettingsButton" type="Button" parent="UI/Menu" unique_id=581578675 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+[node name="SettingsButton" type="Button" parent="CanvasLayer/UI/Menu" unique_id=581578675 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
 layout_mode = 2
 text = "Settings"
 script = ExtResource("3_bqqt6")
-hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
-unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
-press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+hover_audio = NodePath("../../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../../Audio/ButtonPressedAudio")
 
-[node name="CreditsButton" type="Button" parent="UI/Menu" unique_id=1065937366 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+[node name="CreditsButton" type="Button" parent="CanvasLayer/UI/Menu" unique_id=1065937366 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
 layout_mode = 2
 text = "Credits"
 script = ExtResource("3_bqqt6")
-hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
-unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
-press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+hover_audio = NodePath("../../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../../Audio/ButtonPressedAudio")
 
-[node name="QuitButton" type="Button" parent="UI/Menu" unique_id=1404816112 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+[node name="QuitButton" type="Button" parent="CanvasLayer/UI/Menu" unique_id=1404816112 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
 layout_mode = 2
 text = "Quit"
 script = ExtResource("3_bqqt6")
-hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
-unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
-press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+hover_audio = NodePath("../../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../../Audio/ButtonPressedAudio")
+
+[node name="Links" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=1421783549]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.5
+offset_top = -24.0
+offset_right = 135.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_ekxnf")
+
+[node name="GitHub" type="Button" parent="CanvasLayer/UI/Links" unique_id=957484948 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Github  "
+icon = ExtResource("11_7b55j")
+alignment = 0
+script = ExtResource("3_bqqt6")
+hover_audio = NodePath("../../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../../Audio/ButtonPressedAudio")
+
+[node name="ItchIo" type="Button" parent="CanvasLayer/UI/Links" unique_id=1095816322 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Itch.io  "
+icon = ExtResource("12_5pajh")
+alignment = 0
+script = ExtResource("3_bqqt6")
+hover_audio = NodePath("../../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../../Audio/ButtonPressedAudio")
+
+[node name="Twitter" type="Button" parent="CanvasLayer/UI/Links" unique_id=364517579 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Twitter  "
+icon = ExtResource("13_j7ex8")
+alignment = 0
+script = ExtResource("3_bqqt6")
+hover_audio = NodePath("../../../../Audio/ButtonHoveredAudio")
+unhover_audio = NodePath("../../../../Audio/ButtonUnhoveredAudio")
+press_audio = NodePath("../../../../Audio/ButtonPressedAudio")
 
 [node name="Audio" type="Node" parent="." unique_id=1325498635]
 
@@ -161,7 +216,10 @@ stream = ExtResource("4_wu84c")
 [node name="ButtonUnhoveredAudio" type="AudioStreamPlayer" parent="Audio" unique_id=1850292103]
 stream = ExtResource("5_8ln24")
 
-[connection signal="pressed" from="UI/Menu/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="UI/Menu/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="UI/Menu/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="UI/Menu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Menu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Menu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Menu/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Menu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Links/GitHub" to="." method="_on_git_hub_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Links/ItchIo" to="." method="_on_itch_io_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Links/Twitter" to="." method="_on_twitter_pressed"]
