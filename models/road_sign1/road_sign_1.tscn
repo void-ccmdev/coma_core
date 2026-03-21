@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bu0quuh3tqv8h"]
+
+[ext_resource type="PackedScene" uid="uid://qqjfjm3uyc4" path="res://models/road_sign1/road_sign1.blend" id="1_bmitn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mqblc"]
+height = 2.314209
+radius = 0.046875
+
+[node name="RoadSign1" unique_id=142343129 instance=ExtResource("1_bmitn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1342227391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1530567, 0)
+shape = SubResource("CylinderShape3D_mqblc")

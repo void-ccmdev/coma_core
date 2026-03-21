@@ -8,6 +8,8 @@ extends Node3D
 func _ready() -> void:
 	print(next_scene.resource_path)
 
+####---UI-ELEMENTS---####
+
 func _on_play_button_pressed() -> void:
 	await get_tree().create_timer(button_delay).timeout
 	get_tree().change_scene_to_packed(next_scene)

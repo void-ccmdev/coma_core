@@ -4,10 +4,52 @@
 [ext_resource type="FontFile" uid="uid://k40h0ehqjmlq" path="res://fonts/grapple.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://cvom46l87rh3q" path="res://scripts/main_menu.gd" id="1_oa1go"]
 [ext_resource type="PackedScene" uid="uid://slntuiqexwsy" path="res://scenes/worlds/kw_debug.tscn" id="2_tbmy8"]
+[ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="3_5dd4i"]
 [ext_resource type="Script" uid="uid://2gb05wiib87c" path="res://scripts/immersive_button.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://cal7vmnmw616a" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="4_lgwnu"]
 [ext_resource type="AudioStream" uid="uid://1biws5ocxege" path="res://audio/sfx/button_click.mp3" id="4_rtw2f"]
 [ext_resource type="AudioStream" uid="uid://5iamat2fce10" path="res://audio/sfx/button_hover.mp3" id="4_wu84c"]
 [ext_resource type="AudioStream" uid="uid://c04ktjmsc6dy3" path="res://audio/sfx/button_unhover.mp3" id="5_8ln24"]
+[ext_resource type="Material" uid="uid://bl3d27fmoqcwr" path="res://materials/snow.material" id="5_lgwnu"]
+[ext_resource type="PackedScene" uid="uid://bu0quuh3tqv8h" path="res://models/road_sign1/road_sign_1.tscn" id="6_flqon"]
+[ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="7_rcqid"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ajci"]
+
+[sub_resource type="Sky" id="Sky_7b55j"]
+sky_material = SubResource("ProceduralSkyMaterial_1ajci")
+
+[sub_resource type="Environment" id="Environment_1ajci"]
+background_mode = 2
+sky = SubResource("Sky_7b55j")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2194
+volumetric_fog_emission = Color(0.50534403, 0.5053441, 0.50534403, 1)
+volumetric_fog_emission_energy = 0.25
+volumetric_fog_gi_inject = 0.0
+volumetric_fog_anisotropy = 0.0
+volumetric_fog_length = 80.85
+volumetric_fog_detail_spread = 1.4489043
+
+[sub_resource type="Resource" id="Resource_7b55j"]
+script = ExtResource("4_lgwnu")
+ChromaticAberration = true
+StrenghtCA = 0.25
+Vignette = true
+VignetteIntensity = 0.85
+Grain = true
+GrainPower = 5
+metadata/_custom_type_script = "uid://cal7vmnmw616a"
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_flqon"]
+material = ExtResource("5_lgwnu")
+size = Vector2(100, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5pajh"]
+material = ExtResource("7_rcqid")
+size = Vector2(4, 50)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
 font = ExtResource("1_l6cm7")
@@ -20,7 +62,31 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_oa1go")
 next_scene = ExtResource("2_tbmy8")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1026198000]
+transform = Transform3D(0.8922709, -0.39101094, 0.22575018, 2.7805946e-08, 0.49999994, 0.86602545, -0.4515005, -0.7727293, 0.44613537, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2034957382]
+environment = SubResource("Environment_1ajci")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=2082771799]
+script = ExtResource("3_5dd4i")
+configuration = SubResource("Resource_7b55j")
+metadata/_custom_type_script = "uid://brobovje4yggv"
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=275415303]
+transform = Transform3D(0.95275164, 0, 0.30375037, 0, 1, 0, -0.30375037, 0, 0.95275164, 1.3570532, 1.8450748, 1.7624645)
+
+[node name="Env" type="Node3D" parent="." unique_id=1478467916]
+
+[node name="Ground" type="MeshInstance3D" parent="Env" unique_id=163708642]
+mesh = SubResource("PlaneMesh_flqon")
+
+[node name="RoadSign1" parent="Env" unique_id=142343129 instance=ExtResource("6_flqon")]
+transform = Transform3D(0.99360263, 0.07163261, -0.08730672, -0.071511626, 0.99742955, 0.004516673, 0.087405846, 0.0017556672, 0.99617124, 2.0370073, -0.13474393, -0.5059147)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Env" unique_id=1358379322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007102728, 0.0045984387, -0.0010111332)
+mesh = SubResource("PlaneMesh_5pajh")
 
 [node name="UI" type="Control" parent="." unique_id=2134255314]
 layout_mode = 3
@@ -49,6 +115,8 @@ theme = ExtResource("1_ekxnf")
 layout_mode = 2
 text = "ComaCore"
 label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="UI/Menu" unique_id=780227746 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
 layout_mode = 2
