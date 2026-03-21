@@ -25,8 +25,13 @@ sky_material = SubResource("ProceduralSkyMaterial_1ajci")
 [sub_resource type="Environment" id="Environment_1ajci"]
 background_mode = 2
 sky = SubResource("Sky_7b55j")
-tonemap_mode = 2
+tonemap_mode = 3
+tonemap_exposure = 0.67
+tonemap_white = 3.08
 glow_enabled = true
+glow_intensity = 1.7
+glow_bloom = 0.05
+glow_blend_mode = 2
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.2194
 volumetric_fog_emission = Color(0.50534403, 0.5053441, 0.50534403, 1)
@@ -35,6 +40,10 @@ volumetric_fog_gi_inject = 0.0
 volumetric_fog_anisotropy = 0.0
 volumetric_fog_length = 80.85
 volumetric_fog_detail_spread = 1.4489043
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.25
+adjustment_saturation = 1.53
 
 [sub_resource type="Resource" id="Resource_7b55j"]
 script = ExtResource("4_lgwnu")
@@ -59,15 +68,17 @@ emission_shape = 3
 emission_box_extents = Vector3(5.06, 6.81, 4.05)
 turbulence_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ex8"]
-shading_mode = 0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pajh"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_a8gd2"]
-material = SubResource("StandardMaterial3D_j7ex8")
+material = SubResource("StandardMaterial3D_5pajh")
 size = Vector2(0.05, 0.05)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
