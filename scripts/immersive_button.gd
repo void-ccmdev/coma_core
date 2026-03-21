@@ -9,7 +9,9 @@ extends Button
 func _ready() -> void:
 	self.mouse_entered.connect(on_hover)
 	self.mouse_exited.connect(on_unhover)
-	self.pressed.connect(on_press)
+	self.button_down.connect(on_press)
+	self.button_up.connect(on_press)
+
 
 func randomize_audio_pitch(audio : AudioStreamPlayer) -> void:
 	var random = randf_range(0.85, 1.15)
