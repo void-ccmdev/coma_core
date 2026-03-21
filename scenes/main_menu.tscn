@@ -54,6 +54,22 @@ size = Vector2(100, 100)
 material = ExtResource("7_rcqid")
 size = Vector2(4, 50)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5pajh"]
+emission_shape = 3
+emission_box_extents = Vector3(5.06, 6.81, 4.05)
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ex8"]
+shading_mode = 0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_a8gd2"]
+material = SubResource("StandardMaterial3D_j7ex8")
+size = Vector2(0.05, 0.05)
+
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
 font = ExtResource("1_l6cm7")
 font_size = 33
@@ -90,9 +106,17 @@ mesh = SubResource("PlaneMesh_flqon")
 [node name="RoadSign1" parent="Env" unique_id=142343129 instance=ExtResource("6_flqon")]
 transform = Transform3D(0.99360263, 0.07163261, -0.08730672, -0.071511626, 0.99742955, 0.004516673, 0.087405846, 0.0017556672, 0.99617124, 2.0370073, -0.13474393, -0.5059147)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Env" unique_id=1358379322]
+[node name="Road" type="MeshInstance3D" parent="Env" unique_id=1358379322]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007102728, 0.0045984387, -0.0010111332)
 mesh = SubResource("PlaneMesh_5pajh")
+
+[node name="Snow" type="GPUParticles3D" parent="Env" unique_id=161797074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9885259, -3.784238)
+cast_shadow = 0
+amount = 500
+preprocess = 2.0
+process_material = SubResource("ParticleProcessMaterial_5pajh")
+draw_pass_1 = SubResource("QuadMesh_a8gd2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=555818554]
 
