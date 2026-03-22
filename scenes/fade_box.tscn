@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d3uehwrs4h1m5"]
+
+[ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="1_f7q0k"]
+
+[node name="FadeBox" type="ColorRect" unique_id=1303082248]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_f7q0k")

@@ -4,6 +4,8 @@ extends Node3D
 @export var next_scene : PackedScene
 @export var button_delay : float = 0.5
 
+@export var fade_box : FadeBox
+
 @export var github_link : String
 @export var itchio_link : String
 @export var twitter_link : String

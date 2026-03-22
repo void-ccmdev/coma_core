@@ -17,6 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://dkvon8m5c3al1" path="res://textures/platform_links/itchio_icon.png" id="12_5pajh"]
 [ext_resource type="Texture2D" uid="uid://cv1uc0qnt8005" path="res://textures/platform_links/twitter_icon.png" id="13_j7ex8"]
 
+[sub_resource type="Resource" id="Resource_7b55j"]
+script = ExtResource("4_lgwnu")
+ChromaticAberration = true
+StrenghtCA = 0.45
+Vignette = true
+VignetteIntensity = 0.85
+Grain = true
+GrainPower = 45
+metadata/_custom_type_script = "uid://cal7vmnmw616a"
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ajci"]
 
 [sub_resource type="Sky" id="Sky_7b55j"]
@@ -44,16 +54,6 @@ adjustment_enabled = true
 adjustment_brightness = 0.9
 adjustment_contrast = 1.25
 adjustment_saturation = 1.53
-
-[sub_resource type="Resource" id="Resource_7b55j"]
-script = ExtResource("4_lgwnu")
-ChromaticAberration = true
-StrenghtCA = 0.25
-Vignette = true
-VignetteIntensity = 0.85
-Grain = true
-GrainPower = 5
-metadata/_custom_type_script = "uid://cal7vmnmw616a"
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_flqon"]
 material = ExtResource("5_lgwnu")
@@ -88,23 +88,25 @@ font_color = Color(0.3396053, 0.5426322, 1, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="MainMenu" type="Node3D" unique_id=1282798767]
+[node name="MainMenu" type="Node3D" unique_id=1282798767 node_paths=PackedStringArray("fade_box")]
 script = ExtResource("1_oa1go")
 next_scene = ExtResource("2_tbmy8")
+fade_box = NodePath("")
 github_link = "https://github.com/void-ccmdev"
 itchio_link = "https://void-ccmdev.itch.io/"
 twitter_link = "https://x.com/ccmdev_"
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=2082771799]
+follow_viewport_enabled = true
+script = ExtResource("3_5dd4i")
+configuration = SubResource("Resource_7b55j")
+metadata/_custom_type_script = "uid://brobovje4yggv"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1026198000]
 transform = Transform3D(0.8922709, -0.39101094, 0.22575018, 2.7805946e-08, 0.49999994, 0.86602545, -0.4515005, -0.7727293, 0.44613537, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2034957382]
 environment = SubResource("Environment_1ajci")
-
-[node name="PostProcess" type="CanvasLayer" parent="." unique_id=2082771799]
-script = ExtResource("3_5dd4i")
-configuration = SubResource("Resource_7b55j")
-metadata/_custom_type_script = "uid://brobovje4yggv"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=275415303]
 transform = Transform3D(0.95275164, 0, 0.30375037, 0, 1, 0, -0.30375037, 0, 0.95275164, 1.3570532, 1.8450748, 1.7624645)
