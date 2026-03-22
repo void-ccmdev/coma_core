@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://clft01j6sivi2"]
+
+[ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="1_8gwij"]
+[ext_resource type="Script" uid="uid://cm35kak346i3k" path="res://scripts/credits.gd" id="1_ih6pn"]
+[ext_resource type="Script" uid="uid://cal7vmnmw616a" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="2_mah5v"]
+[ext_resource type="Material" uid="uid://bl3d27fmoqcwr" path="res://materials/snow.material" id="3_kyhnv"]
+[ext_resource type="PackedScene" uid="uid://bu0quuh3tqv8h" path="res://models/road_sign1/road_sign_1.tscn" id="4_ooihk"]
+[ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="5_ih6pn"]
+[ext_resource type="FontFile" uid="uid://ebp0k43lw3vd" path="res://fonts/Star Crush.ttf" id="6_kyhnv"]
+[ext_resource type="FontFile" uid="uid://k40h0ehqjmlq" path="res://fonts/grapple.ttf" id="7_ooihk"]
+[ext_resource type="FontFile" uid="uid://i6dah6m2367c" path="res://fonts/PIXY.ttf" id="8_ooihk"]
+
+[sub_resource type="Resource" id="Resource_7lgdl"]
+script = ExtResource("2_mah5v")
+ChromaticAberration = true
+StrenghtCA = 0.45
+Vignette = true
+VignetteIntensity = 0.85
+Grain = true
+GrainPower = 45
+metadata/_custom_type_script = "uid://cal7vmnmw616a"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c6kru"]
+
+[sub_resource type="Sky" id="Sky_7b55j"]
+sky_material = SubResource("ProceduralSkyMaterial_c6kru")
+
+[sub_resource type="Environment" id="Environment_qbfqv"]
+background_mode = 2
+sky = SubResource("Sky_7b55j")
+tonemap_mode = 3
+tonemap_exposure = 0.67
+tonemap_white = 3.08
+glow_enabled = true
+glow_intensity = 1.7
+glow_bloom = 0.05
+glow_blend_mode = 2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2194
+volumetric_fog_emission = Color(0.50534403, 0.5053441, 0.50534403, 1)
+volumetric_fog_emission_energy = 0.25
+volumetric_fog_gi_inject = 0.0
+volumetric_fog_anisotropy = 0.0
+volumetric_fog_length = 80.85
+volumetric_fog_detail_spread = 1.4489043
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.25
+adjustment_saturation = 1.53
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x5q3x"]
+material = ExtResource("3_kyhnv")
+size = Vector2(100, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nmdnh"]
+material = ExtResource("5_ih6pn")
+size = Vector2(4, 50)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_83ncp"]
+emission_shape = 3
+emission_box_extents = Vector3(5.06, 6.81, 4.05)
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pajh"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_sxold"]
+material = SubResource("StandardMaterial3D_5pajh")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ih6pn"]
+line_spacing = 0.25
+font = ExtResource("6_kyhnv")
+font_size = 28
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7lgdl"]
+font = ExtResource("7_ooihk")
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c6kru"]
+line_spacing = 0.25
+font = ExtResource("6_kyhnv")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbfqv"]
+font = ExtResource("8_ooihk")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Node3D" unique_id=1484701771 node_paths=PackedStringArray("credits")]
+script = ExtResource("1_ih6pn")
+credits = NodePath("CanvasLayer/UI/Credits")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=1287179165]
+follow_viewport_enabled = true
+script = ExtResource("1_8gwij")
+configuration = SubResource("Resource_7lgdl")
+metadata/_custom_type_script = "uid://brobovje4yggv"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=800344146]
+transform = Transform3D(0.8922709, -0.39101094, 0.22575018, 2.7805946e-08, 0.49999994, 0.86602545, -0.4515005, -0.7727293, 0.44613537, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1983336759]
+environment = SubResource("Environment_qbfqv")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=369590221]
+transform = Transform3D(0.95275164, 0, 0.30375037, 0, 1, 0, -0.30375037, 0, 0.95275164, 1.3570532, 1.8450748, 1.7624645)
+
+[node name="Env" type="Node3D" parent="." unique_id=1881024792]
+
+[node name="Ground" type="MeshInstance3D" parent="Env" unique_id=1184128587]
+mesh = SubResource("PlaneMesh_x5q3x")
+
+[node name="RoadSign1" parent="Env" unique_id=142343129 instance=ExtResource("4_ooihk")]
+transform = Transform3D(0.99360263, 0.07163261, -0.08730672, -0.071511626, 0.99742955, 0.004516673, 0.087405846, 0.0017556672, 0.99617124, 2.0370073, -0.13474393, -0.5059147)
+
+[node name="Road" type="MeshInstance3D" parent="Env" unique_id=842341316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007102728, 0.0045984387, -0.0010111332)
+mesh = SubResource("PlaneMesh_nmdnh")
+
+[node name="Snow" type="GPUParticles3D" parent="Env" unique_id=1589663214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9885259, -3.784238)
+cast_shadow = 0
+amount = 500
+preprocess = 2.0
+process_material = SubResource("ParticleProcessMaterial_83ncp")
+draw_pass_1 = SubResource("QuadMesh_sxold")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1841381347]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=37905468]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1102447167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 260.0
+offset_bottom = 393.0011
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Thanking" type="Label" parent="CanvasLayer/UI/Credits" unique_id=912206027]
+layout_mode = 2
+text = "Thank you for playing!"
+label_settings = SubResource("LabelSettings_ih6pn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator" type="Label" parent="CanvasLayer/UI/Credits" unique_id=1731193508]
+layout_mode = 2
+text = "--------------------------------------"
+label_settings = SubResource("LabelSettings_7lgdl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Developers" type="Label" parent="CanvasLayer/UI/Credits" unique_id=410062294]
+layout_mode = 2
+text = "Programmer: ccmdev_
+Audio Designer: ccmdev_
+Texture Designer: ccmdev_
+3D Designer: ccmdev_
+Emotional Support: sb_77dynamo
+Publisher: ccmdev_
+Story Design: ccmdev_"
+label_settings = SubResource("LabelSettings_c6kru")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator2" type="Label" parent="CanvasLayer/UI/Credits" unique_id=774292018]
+layout_mode = 2
+text = "--------------------------------------"
+label_settings = SubResource("LabelSettings_7lgdl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Programs Used" type="Label" parent="CanvasLayer/UI/Credits" unique_id=946030624]
+layout_mode = 2
+text = "::PROGRAMS::
+
+Blender 4.5
+Gimp
+Audacity
+Godot 4.6.1 -
+"
+label_settings = SubResource("LabelSettings_qbfqv")
+horizontal_alignment = 1
+vertical_alignment = 1

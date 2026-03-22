@@ -1,10 +1,7 @@
 extends Node3D
 
-
 @export var next_scene : PackedScene
 @export var button_delay : float = 0.5
-
-@export var fade_box : FadeBox
 
 @export var github_link : String
 @export var itchio_link : String
@@ -23,7 +20,8 @@ func _on_settings_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_credits_button_pressed() -> void:
-	pass # Replace with function body.
+	await get_tree().create_timer(button_delay).timeout
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
 func _on_quit_button_pressed() -> void:
 	await get_tree().create_timer(button_delay).timeout

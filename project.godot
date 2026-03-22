@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ComaCore"
-run/main_scene="uid://slntuiqexwsy"
+run/main_scene="uid://0y8e7sfvt8un"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bo5uagwuuhchq"
 

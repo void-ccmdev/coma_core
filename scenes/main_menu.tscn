@@ -29,12 +29,12 @@ metadata/_custom_type_script = "uid://cal7vmnmw616a"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ajci"]
 
-[sub_resource type="Sky" id="Sky_7b55j"]
+[sub_resource type="Sky" id="Sky_5pajh"]
 sky_material = SubResource("ProceduralSkyMaterial_1ajci")
 
 [sub_resource type="Environment" id="Environment_1ajci"]
 background_mode = 2
-sky = SubResource("Sky_7b55j")
+sky = SubResource("Sky_5pajh")
 tonemap_mode = 3
 tonemap_exposure = 0.67
 tonemap_white = 3.08
@@ -68,7 +68,7 @@ emission_shape = 3
 emission_box_extents = Vector3(5.06, 6.81, 4.05)
 turbulence_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pajh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ex8"]
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 2.0
@@ -78,7 +78,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_a8gd2"]
-material = SubResource("StandardMaterial3D_5pajh")
+material = SubResource("StandardMaterial3D_j7ex8")
 size = Vector2(0.05, 0.05)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
@@ -88,10 +88,9 @@ font_color = Color(0.3396053, 0.5426322, 1, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="MainMenu" type="Node3D" unique_id=1282798767 node_paths=PackedStringArray("fade_box")]
+[node name="MainMenu" type="Node3D" unique_id=1282798767]
 script = ExtResource("1_oa1go")
 next_scene = ExtResource("2_tbmy8")
-fade_box = NodePath("")
 github_link = "https://github.com/void-ccmdev"
 itchio_link = "https://void-ccmdev.itch.io/"
 twitter_link = "https://x.com/ccmdev_"
