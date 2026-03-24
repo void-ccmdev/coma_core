@@ -3,19 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bqaejyfanq7c6" path="res://addons/kenney_prototype_textures/dark/texture_09.png" id="1_6ualg"]
 [ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="1_ue66r"]
 [ext_resource type="Texture2D" uid="uid://bwdyd1qnl5nc" path="res://addons/kenney_prototype_textures/dark/texture_05.png" id="2_1a7tp"]
+[ext_resource type="Resource" uid="uid://c0dsfxhwb8bwe" path="res://addons/post_processing/resource/no_effects_example.tres" id="2_ml6ks"]
 [ext_resource type="PackedScene" uid="uid://c8c005i0y36v8" path="res://scenes/player.tscn" id="2_re7ow"]
-[ext_resource type="Script" uid="uid://cal7vmnmw616a" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="2_vd3ub"]
 [ext_resource type="VoxelGIData" uid="uid://umjmabo8ou82" path="res://scenes/worlds/kw_debug.VoxelGI_data.res" id="2_wfq33"]
 [ext_resource type="AudioStream" uid="uid://cdqkxa4xgxqcn" path="res://audio/ost/KICK BACK.mp3" id="7_l8ljj"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="8_i2pbu"]
-
-[sub_resource type="Resource" id="Resource_l8ljj"]
-script = ExtResource("2_vd3ub")
-ChromaticAberration = true
-Vignette = true
-Grain = true
-GrainPower = 25
-metadata/_custom_type_script = "uid://cal7vmnmw616a"
+[ext_resource type="Script" uid="uid://h6onpoc726jr" path="res://scripts/stair_col.gd" id="10_ml6ks"]
+[ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="10_tkc5g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ualg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -68,11 +62,19 @@ emission_energy_multiplier = 2.0
 material = SubResource("StandardMaterial3D_ue66r")
 size = Vector3(0.3, 0.3, 0.3)
 
+[sub_resource type="BoxMesh" id="BoxMesh_i2pbu"]
+material = ExtResource("10_tkc5g")
+size = Vector3(3, 0.2, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tkc5g"]
+size = Vector3(0, 0, 0)
+
 [node name="Debug" type="Node3D" unique_id=1610174161]
 
 [node name="PostProcess" type="CanvasLayer" parent="." unique_id=340357823]
 script = ExtResource("1_ue66r")
-configuration = SubResource("Resource_l8ljj")
+configuration = ExtResource("2_ml6ks")
+dynamically_update = false
 metadata/_custom_type_script = "uid://brobovje4yggv"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1523626618]
@@ -230,8 +232,18 @@ mesh = SubResource("BoxMesh_vd3ub")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="VoxelGI/Env/Room/OmniLight3D" unique_id=738921248]
 stream = ExtResource("7_l8ljj")
-autoplay = true
 bus = &"RaytracedReverb"
 doppler_tracking = 2
 script = ExtResource("8_i2pbu")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="Stairs" type="Node3D" parent="VoxelGI/Env" unique_id=1349526553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Stair" type="MeshInstance3D" parent="VoxelGI/Env/Stairs" unique_id=2121824596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_i2pbu")
+script = ExtResource("10_ml6ks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/Stairs/Stair" unique_id=329261649]
+shape = SubResource("BoxShape3D_tkc5g")

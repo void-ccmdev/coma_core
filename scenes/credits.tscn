@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://ebp0k43lw3vd" path="res://fonts/Star Crush.ttf" id="6_kyhnv"]
 [ext_resource type="FontFile" uid="uid://k40h0ehqjmlq" path="res://fonts/grapple.ttf" id="7_ooihk"]
 [ext_resource type="FontFile" uid="uid://i6dah6m2367c" path="res://fonts/PIXY.ttf" id="8_ooihk"]
+[ext_resource type="AudioStream" uid="uid://c0iehxy608c4n" path="res://audio/ost/Ammo.wav" id="10_7lgdl"]
 
 [sub_resource type="Resource" id="Resource_7lgdl"]
 script = ExtResource("2_mah5v")
@@ -202,3 +203,9 @@ Godot 4.6.1 -
 label_settings = SubResource("LabelSettings_qbfqv")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Audio" type="Node" parent="." unique_id=1709657616]
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=756140559]
+stream = ExtResource("10_7lgdl")
+autoplay = true

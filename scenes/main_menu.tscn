@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cv6yb32o7wn4a" path="res://textures/platform_links/github_icon.png" id="11_7b55j"]
 [ext_resource type="Texture2D" uid="uid://dkvon8m5c3al1" path="res://textures/platform_links/itchio_icon.png" id="12_5pajh"]
 [ext_resource type="Texture2D" uid="uid://cv1uc0qnt8005" path="res://textures/platform_links/twitter_icon.png" id="13_j7ex8"]
+[ext_resource type="AudioStream" uid="uid://c0iehxy608c4n" path="res://audio/ost/Ammo.wav" id="17_j7ex8"]
 
 [sub_resource type="Resource" id="Resource_7b55j"]
 script = ExtResource("4_lgwnu")
@@ -251,6 +252,10 @@ stream = ExtResource("4_wu84c")
 
 [node name="ButtonUnhoveredAudio" type="AudioStreamPlayer" parent="Audio" unique_id=1850292103]
 stream = ExtResource("5_8ln24")
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=1820296379]
+stream = ExtResource("17_j7ex8")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/UI/Menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Menu/SettingsButton" to="." method="_on_settings_button_pressed"]

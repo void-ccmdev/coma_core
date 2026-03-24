@@ -8,12 +8,19 @@
 [ext_resource type="Script" uid="uid://d3m7d7ecsvmpp" path="res://scripts/player/flashlight.gd" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://cd3wjnv7u0ys4" path="res://audio/sfx/flashlight.mp3" id="7_smehm"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="8_ur7pv"]
+[ext_resource type="Script" uid="uid://rlxefiabd73o" path="res://scripts/player/stair_stepping.gd" id="9_ur7pv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 radius = 0.25
 height = 1.75
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y4r1p"]
+height = 0.4
+radius = 0.35
+
 [node name="Player" type="CharacterBody3D" unique_id=1996494235]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_3vyb7")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=924775350]
@@ -56,3 +63,24 @@ bus = &"RaytracedReverb"
 doppler_tracking = 2
 script = ExtResource("8_ur7pv")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="StairStepping" type="Node3D" parent="." unique_id=1216871847 node_paths=PackedStringArray("player", "wall_detector", "stair_detector", "stair_ground_detector")]
+script = ExtResource("9_ur7pv")
+player = NodePath("..")
+wall_detector = NodePath("../WallCast")
+stair_detector = NodePath("../StairDetector")
+stair_ground_detector = NodePath("../StairGroundDetector")
+enable_stair_stepping = false
+
+[node name="StairDetector" type="ShapeCast3D" parent="." unique_id=980240103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46509427, 0)
+shape = SubResource("CylinderShape3D_y4r1p")
+target_position = Vector3(0, -0.2, 0)
+
+[node name="WallCast" type="ShapeCast3D" parent="." unique_id=181295395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87189764, 0)
+shape = SubResource("CylinderShape3D_y4r1p")
+target_position = Vector3(0, -0.2, 0)
+
+[node name="StairGroundDetector" type="RayCast3D" parent="." unique_id=1806329553]
+target_position = Vector3(0, -0.3, 0)

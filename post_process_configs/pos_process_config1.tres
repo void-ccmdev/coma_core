@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PostProcessingConfiguration" format=3 uid="uid://d1sss6nperjoj"]
+
+[ext_resource type="Script" uid="uid://cal7vmnmw616a" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="1_kq8ln"]
+
+[resource]
+script = ExtResource("1_kq8ln")
+ChromaticAberration = true
+Vignette = true
+Grain = true
+GrainPower = 25
+metadata/_custom_type_script = "uid://cal7vmnmw616a"
