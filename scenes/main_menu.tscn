@@ -90,6 +90,7 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Node3D" unique_id=1282798767]
+process_mode = 3
 script = ExtResource("1_oa1go")
 next_scene = ExtResource("2_tbmy8")
 github_link = "https://github.com/void-ccmdev"

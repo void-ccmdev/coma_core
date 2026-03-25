@@ -8,8 +8,9 @@
 [ext_resource type="VoxelGIData" uid="uid://umjmabo8ou82" path="res://scenes/worlds/kw_debug.VoxelGI_data.res" id="2_wfq33"]
 [ext_resource type="AudioStream" uid="uid://cdqkxa4xgxqcn" path="res://audio/ost/KICK BACK.mp3" id="7_l8ljj"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="8_i2pbu"]
-[ext_resource type="Script" uid="uid://h6onpoc726jr" path="res://scripts/stair_col.gd" id="10_ml6ks"]
+[ext_resource type="Script" uid="uid://dhjuxj6xluuce" path="res://addons/array_modifier/ArrayModifier.gd" id="9_ml6ks"]
 [ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="10_tkc5g"]
+[ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="11_tkc5g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ualg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -66,8 +67,8 @@ size = Vector3(0.3, 0.3, 0.3)
 material = ExtResource("10_tkc5g")
 size = Vector3(3, 0.2, 0.4)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tkc5g"]
-size = Vector3(0, 0, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ml6ks"]
+size = Vector3(3, 0.335, 44.799)
 
 [node name="Debug" type="Node3D" unique_id=1610174161]
 
@@ -240,10 +241,20 @@ metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 [node name="Stairs" type="Node3D" parent="VoxelGI/Env" unique_id=1349526553]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 
-[node name="Stair" type="MeshInstance3D" parent="VoxelGI/Env/Stairs" unique_id=2121824596]
+[node name="ArrayModifier" type="Node3D" parent="VoxelGI/Env/Stairs" unique_id=1039324004]
+script = ExtResource("9_ml6ks")
+repeat_levels = Array[int]([100])
+repeat_offsets = Array[Vector3]([Vector3(0, 0.2, -0.4)])
+metadata/_custom_type_script = "uid://dhjuxj6xluuce"
+
+[node name="Stair" type="MeshInstance3D" parent="VoxelGI/Env/Stairs/ArrayModifier" unique_id=2121824596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh = SubResource("BoxMesh_i2pbu")
-script = ExtResource("10_ml6ks")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/Stairs/Stair" unique_id=329261649]
-shape = SubResource("BoxShape3D_tkc5g")
+[node name="StaticBody3D" type="StaticBody3D" parent="VoxelGI/Env/Stairs" unique_id=726502776]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/Stairs/StaticBody3D" unique_id=95875398]
+transform = Transform3D(1, 0, 0, 0, 0.89415425, -0.44775906, 0, 0.44775906, 0.89415425, 0, 9.845749, -19.430065)
+shape = SubResource("BoxShape3D_ml6ks")
+
+[node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("11_tkc5g")]
