@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://2gb05wiib87c" path="res://scripts/immersive_button.gd" id="3_kukqi"]
 [ext_resource type="AudioStream" uid="uid://1biws5ocxege" path="res://audio/sfx/button_click.mp3" id="4_v4r4p"]
 [ext_resource type="AudioStream" uid="uid://5iamat2fce10" path="res://audio/sfx/button_hover.mp3" id="5_1s2dm"]
+[ext_resource type="PackedScene" uid="uid://cya0cbmgs483l" path="res://scenes/settings.tscn" id="5_88e76"]
 [ext_resource type="AudioStream" uid="uid://c04ktjmsc6dy3" path="res://audio/sfx/button_unhover.mp3" id="6_88e76"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5d2l8"]
@@ -14,7 +15,7 @@ font_size = 40
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="PauseMenu" type="Control" unique_id=1080143956 node_paths=PackedStringArray("pause_ui")]
+[node name="PauseMenu" type="Control" unique_id=1080143956 node_paths=PackedStringArray("pause_ui", "settings_ui")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -25,6 +26,7 @@ grow_vertical = 2
 theme = ExtResource("1_myx47")
 script = ExtResource("2_1s2dm")
 pause_ui = NodePath("PauseUI")
+settings_ui = NodePath("Settings")
 
 [node name="PauseUI" type="Control" parent="." unique_id=307409061]
 layout_mode = 1
@@ -103,6 +105,10 @@ script = ExtResource("3_kukqi")
 hover_audio = NodePath("../../../Audio/ButtonHoveredAudio")
 unhover_audio = NodePath("../../../Audio/ButtonUnhoveredAudio")
 press_audio = NodePath("../../../Audio/ButtonPressedAudio")
+
+[node name="Settings" parent="." unique_id=1943664691 instance=ExtResource("5_88e76")]
+visible = false
+layout_mode = 1
 
 [node name="Audio" type="Node" parent="." unique_id=806565068]
 

@@ -1,10 +1,9 @@
-extends Control
+class_name SettingsControl extends Control
 
 @export var vsync_btn : CheckButton
 @export var fullscreen_btn : CheckButton
-
-func _ready() -> void:
-	pass
+@export var back_btn : Button
+@export var should_hide : bool = false
 
 func _on_v_sync_pressed() -> void:
 	print("V-Sync enabled = " + str(vsync_btn.button_pressed))
@@ -23,3 +22,6 @@ func _on_fullscreen_pressed() -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			
+
+func _on_back_btn_pressed() -> void:
+	should_hide = true

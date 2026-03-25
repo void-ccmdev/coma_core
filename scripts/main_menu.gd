@@ -1,5 +1,8 @@
 extends Node3D
 
+@export var menu_ui : Control
+@export var settings_ui : SettingsControl
+
 @export var next_scene : PackedScene
 @export var button_delay : float = 0.5
 
@@ -10,6 +13,24 @@ extends Node3D
 func _ready() -> void:
 	print(next_scene.resource_path)
 
+	hide_settings()
+
+func _process(_delta: float) -> void:
+	if settings_ui.should_hide:
+		hide_settings()
+
+####---CUSTOM-FUNCTIONS---####
+
+func show_settings() -> void:
+	settings_ui.show()
+	menu_ui.hide()
+	settings_ui.should_hide = false
+
+func hide_settings() -> void:
+	settings_ui.hide()
+	menu_ui.show()
+	settings_ui.should_hide = false
+
 ####---UI-ELEMENTS---####
 
 func _on_play_button_pressed() -> void:
@@ -17,7 +38,7 @@ func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(next_scene)
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	show_settings()
 
 func _on_credits_button_pressed() -> void:
 	await get_tree().create_timer(button_delay).timeout

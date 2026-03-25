@@ -14,7 +14,7 @@ font_size = 28
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Settings" type="Control" unique_id=1943664691 node_paths=PackedStringArray("vsync_btn", "fullscreen_btn")]
+[node name="Settings" type="Control" unique_id=1943664691 node_paths=PackedStringArray("vsync_btn", "fullscreen_btn", "back_btn")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +25,7 @@ theme = ExtResource("1_5p8wc")
 script = ExtResource("2_83j8s")
 vsync_btn = NodePath("Buttons/VSync")
 fullscreen_btn = NodePath("Buttons/Fullscreen")
+back_btn = NodePath("BackBtn")
 
 [node name="Background" type="ColorRect" parent="." unique_id=304733645]
 layout_mode = 1
@@ -81,7 +82,7 @@ hover_audio = NodePath("../../Audio/ButtonHoveredAudio")
 unhover_audio = NodePath("../../Audio/ButtonUnhoveredAudio")
 press_audio = NodePath("../../Audio/ButtonPressedAudio")
 
-[node name="Button" type="Button" parent="." unique_id=2063320791 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
+[node name="BackBtn" type="Button" parent="." unique_id=2063320791 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
 layout_mode = 0
 offset_right = 90.0
 offset_bottom = 40.0
@@ -104,3 +105,4 @@ stream = ExtResource("5_83j8s")
 
 [connection signal="pressed" from="Buttons/VSync" to="." method="_on_v_sync_pressed"]
 [connection signal="pressed" from="Buttons/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
