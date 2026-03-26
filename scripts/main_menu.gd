@@ -12,7 +12,7 @@ extends Node3D
 
 func _ready() -> void:
 	print(next_scene.resource_path)
-
+	get_tree().paused = false
 	hide_settings()
 
 func _process(_delta: float) -> void:

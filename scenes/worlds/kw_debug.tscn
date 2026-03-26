@@ -233,6 +233,7 @@ mesh = SubResource("BoxMesh_vd3ub")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="VoxelGI/Env/Room/OmniLight3D" unique_id=738921248]
 stream = ExtResource("7_l8ljj")
+autoplay = true
 bus = &"RaytracedReverb"
 doppler_tracking = 2
 script = ExtResource("8_i2pbu")

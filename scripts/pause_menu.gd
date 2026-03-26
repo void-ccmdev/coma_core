@@ -10,7 +10,6 @@ func _ready() -> void:
 		pause()
 	elif !get_tree().paused && self.visible:
 		resume()
-		get_tree().debug_collisions_hint = true
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
