@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://1biws5ocxege" path="res://audio/sfx/button_click.mp3" id="3_es4n0"]
 [ext_resource type="AudioStream" uid="uid://5iamat2fce10" path="res://audio/sfx/button_hover.mp3" id="4_gis3k"]
 [ext_resource type="AudioStream" uid="uid://c04ktjmsc6dy3" path="res://audio/sfx/button_unhover.mp3" id="5_83j8s"]
+[ext_resource type="FontFile" uid="uid://i6dah6m2367c" path="res://fonts/PIXY.ttf" id="5_gjs24"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_83j8s"]
 font = ExtResource("2_gis3k")
@@ -14,7 +15,11 @@ font_size = 28
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Settings" type="Control" unique_id=1943664691 node_paths=PackedStringArray("vsync_btn", "fullscreen_btn", "debug_btn", "back_btn")]
+[sub_resource type="LabelSettings" id="LabelSettings_am25x"]
+font = ExtResource("5_gjs24")
+font_color = Color(0, 0, 0, 0.41960785)
+
+[node name="Settings" type="Control" unique_id=1943664691 node_paths=PackedStringArray("vsync_btn", "fullscreen_btn", "back_btn")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +30,6 @@ theme = ExtResource("1_5p8wc")
 script = ExtResource("2_83j8s")
 vsync_btn = NodePath("Buttons/VSync")
 fullscreen_btn = NodePath("Buttons/Fullscreen")
-debug_btn = NodePath("Buttons/DebugMode")
 back_btn = NodePath("BackBtn")
 
 [node name="Background" type="ColorRect" parent="." unique_id=304733645]
@@ -83,14 +87,6 @@ hover_audio = NodePath("../../Audio/ButtonHoveredAudio")
 unhover_audio = NodePath("../../Audio/ButtonUnhoveredAudio")
 press_audio = NodePath("../../Audio/ButtonPressedAudio")
 
-[node name="DebugMode" type="CheckButton" parent="Buttons" unique_id=235686320 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
-layout_mode = 2
-text = "DebugMode"
-script = ExtResource("2_r6d6q")
-hover_audio = NodePath("../../Audio/ButtonHoveredAudio")
-unhover_audio = NodePath("../../Audio/ButtonUnhoveredAudio")
-press_audio = NodePath("../../Audio/ButtonPressedAudio")
-
 [node name="BackBtn" type="Button" parent="." unique_id=2063320791 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
 layout_mode = 0
 offset_right = 90.0
@@ -100,6 +96,21 @@ script = ExtResource("2_r6d6q")
 hover_audio = NodePath("../Audio/ButtonHoveredAudio")
 unhover_audio = NodePath("../Audio/ButtonUnhoveredAudio")
 press_audio = NodePath("../Audio/ButtonPressedAudio")
+
+[node name="DebugHint" type="Label" parent="." unique_id=1422684509]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009000001
+anchor_top = 0.934
+anchor_right = 0.53400004
+anchor_bottom = 1.023
+offset_left = -0.14900017
+offset_top = 0.09399414
+offset_right = -0.17401123
+offset_bottom = 0.042999268
+grow_vertical = 0
+text = "Debug mode : Ctrl + Shift + /"
+label_settings = SubResource("LabelSettings_am25x")
 
 [node name="Audio" type="Node" parent="." unique_id=1145903652]
 
@@ -114,5 +125,4 @@ stream = ExtResource("5_83j8s")
 
 [connection signal="pressed" from="Buttons/VSync" to="." method="_on_v_sync_pressed"]
 [connection signal="pressed" from="Buttons/Fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="pressed" from="Buttons/DebugMode" to="." method="_on_debug_mode_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]

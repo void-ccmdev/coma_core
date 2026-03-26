@@ -10,6 +10,7 @@ outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
 [node name="DebugScreen" type="Control" unique_id=822355395 node_paths=PackedStringArray("ui_fps", "ui_gpos", "ui_vsync")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
