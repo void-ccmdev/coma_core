@@ -9,7 +9,7 @@ font_size = 14
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DebugScreen" type="Control" unique_id=822355395 node_paths=PackedStringArray("ui_fps", "ui_gpos")]
+[node name="DebugScreen" type="Control" unique_id=822355395 node_paths=PackedStringArray("ui_fps", "ui_gpos", "ui_vsync")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +20,7 @@ mouse_filter = 2
 script = ExtResource("1_nxn64")
 ui_fps = NodePath("Margin/VBoxContainer/FPS")
 ui_gpos = NodePath("Margin/VBoxContainer/GlobalPosition")
+ui_vsync = NodePath("Margin/VBoxContainer/VSync")
 
 [node name="Margin" type="MarginContainer" parent="." unique_id=1525306328]
 layout_mode = 1
@@ -44,4 +45,9 @@ label_settings = SubResource("LabelSettings_xklg5")
 [node name="GlobalPosition" type="Label" parent="Margin/VBoxContainer" unique_id=674650194]
 layout_mode = 2
 text = "Position:"
+label_settings = SubResource("LabelSettings_xklg5")
+
+[node name="VSync" type="Label" parent="Margin/VBoxContainer" unique_id=2054151454]
+layout_mode = 2
+text = "V-Sync:"
 label_settings = SubResource("LabelSettings_xklg5")

@@ -12,4 +12,5 @@ func _input(_event: InputEvent) -> void:
         get_tree().quit()
     
     if Input.is_action_just_pressed("debug"):
-        debug_mode_enabled = true
+        if debug_mode_enabled: debug_mode_enabled = false
+        else: debug_mode_enabled = true
