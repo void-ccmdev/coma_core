@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dhjuxj6xluuce" path="res://addons/array_modifier/ArrayModifier.gd" id="9_ml6ks"]
 [ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="10_tkc5g"]
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="11_tkc5g"]
+[ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="12_2lg2o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ualg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -257,5 +258,8 @@ mesh = SubResource("BoxMesh_i2pbu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/Stairs/StaticBody3D" unique_id=95875398]
 transform = Transform3D(1, 0, 0, 0, 0.89415425, -0.44775906, 0, 0.44775906, 0.89415425, 0, 9.845749, -19.430065)
 shape = SubResource("BoxShape3D_ml6ks")
+
+[node name="DebugScreen" parent="." unique_id=822355395 node_paths=PackedStringArray("player") instance=ExtResource("12_2lg2o")]
+player = NodePath("../Player")
 
 [node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("11_tkc5g")]

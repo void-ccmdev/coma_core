@@ -2,6 +2,8 @@ class_name SettingsControl extends Control
 
 @export var vsync_btn : CheckButton
 @export var fullscreen_btn : CheckButton
+@export var debug_btn : CheckButton
+
 @export var back_btn : Button
 @export var should_hide : bool = false
 
@@ -25,3 +27,11 @@ func _on_fullscreen_pressed() -> void:
 
 func _on_back_btn_pressed() -> void:
 	should_hide = true
+
+func _on_debug_mode_pressed() -> void:
+	print("V-Sync enabled = " + str(debug_btn.button_pressed))
+
+	if debug_btn.pressed:
+		Global.debug_mode_enabled = true
+	else:
+		Global.debug_mode_enabled = false
