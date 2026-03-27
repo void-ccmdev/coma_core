@@ -11,6 +11,9 @@ func _process(_delta: float) -> void:
 
 		ui_crosshair.show()
 		ui_message.text = collider.message
+
+		if Input.is_action_just_pressed("interact"):
+			collider.interact()
 	else:
 		collider = null
 		ui_crosshair.hide()

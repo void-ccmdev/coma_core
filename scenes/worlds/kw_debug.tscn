@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="8_i2pbu"]
 [ext_resource type="Script" uid="uid://dhjuxj6xluuce" path="res://addons/array_modifier/ArrayModifier.gd" id="9_ml6ks"]
 [ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="10_tkc5g"]
+[ext_resource type="Script" uid="uid://ddobs4rdvu2g" path="res://scripts/debug_interactable_obj.gd" id="11_8foen"]
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="11_tkc5g"]
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="12_2lg2o"]
 
@@ -61,6 +62,10 @@ size = Vector3(3, 0.2, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ml6ks"]
 size = Vector3(3, 0.335, 44.799)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mu7u2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mcj0t"]
 
 [node name="Debug" type="Node3D" unique_id=1610174161]
 
@@ -249,6 +254,56 @@ mesh = SubResource("BoxMesh_i2pbu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/Stairs/StaticBody3D" unique_id=95875398]
 transform = Transform3D(1, 0, 0, 0, 0.89415425, -0.44775906, 0, 0.44775906, 0.89415425, 0, 9.845749, -19.430065)
 shape = SubResource("BoxShape3D_ml6ks")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="VoxelGI/Env" unique_id=1002422173 groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 13.508252)
+script = ExtResource("11_8foen")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VoxelGI/Env/StaticBody3D" unique_id=106342625]
+mesh = SubResource("BoxMesh_mu7u2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/StaticBody3D" unique_id=1014142275]
+shape = SubResource("BoxShape3D_mcj0t")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="VoxelGI/Env" unique_id=1352465913 groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.400273, 0.5, 9.098404)
+script = ExtResource("11_8foen")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VoxelGI/Env/StaticBody3D2" unique_id=685752719]
+mesh = SubResource("BoxMesh_mu7u2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/StaticBody3D2" unique_id=2065619028]
+shape = SubResource("BoxShape3D_mcj0t")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="VoxelGI/Env" unique_id=424677932 groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92427254, 0.5, 22.610146)
+script = ExtResource("11_8foen")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VoxelGI/Env/StaticBody3D3" unique_id=548475619]
+mesh = SubResource("BoxMesh_mu7u2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/StaticBody3D3" unique_id=1204599263]
+shape = SubResource("BoxShape3D_mcj0t")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="VoxelGI/Env" unique_id=1895275050 groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.053688, 0.5, 17.731382)
+script = ExtResource("11_8foen")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VoxelGI/Env/StaticBody3D4" unique_id=1844759818]
+mesh = SubResource("BoxMesh_mu7u2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/StaticBody3D4" unique_id=343049643]
+shape = SubResource("BoxShape3D_mcj0t")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="VoxelGI/Env" unique_id=2137454570 groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3407784, 0.5, 25.940908)
+script = ExtResource("11_8foen")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VoxelGI/Env/StaticBody3D5" unique_id=1545768675]
+mesh = SubResource("BoxMesh_mu7u2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VoxelGI/Env/StaticBody3D5" unique_id=890873410]
+shape = SubResource("BoxShape3D_mcj0t")
 
 [node name="DebugScreen" parent="." unique_id=822355395 node_paths=PackedStringArray("player") instance=ExtResource("12_2lg2o")]
 player = NodePath("../Player")
