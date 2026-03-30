@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ddobs4rdvu2g" path="res://scripts/debug_interactable_obj.gd" id="11_8foen"]
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="11_tkc5g"]
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="12_2lg2o"]
+[ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="14_mu7u2"]
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_tkc5g"]
 _data = {
@@ -309,3 +310,15 @@ shape = SubResource("BoxShape3D_mcj0t")
 player = NodePath("../Player")
 
 [node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("11_tkc5g")]
+
+[node name="FadeBox" type="ColorRect" parent="." unique_id=149360475]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("14_mu7u2")
+fade_on_load = true
+metadata/_custom_type_script = "uid://g3ngbum2ke1y"

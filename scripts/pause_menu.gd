@@ -2,6 +2,8 @@ extends Control
 
 @export var pause_ui : Control
 @export var settings_ui : SettingsControl
+@export var fade_box : FadeBox
+@export var button_delay : float = 0.8
 
 ####---FUNCTIONALITY---####
 
@@ -54,7 +56,13 @@ func _on_settings_pressed() -> void:
 	show_settings()
 
 func _on_main_menu_pressed() -> void:
+	get_tree().paused = false
+	fade_box.fade_in()
+	await get_tree().create_timer(button_delay).timeout
 	get_tree().change_scene_to_packed(Global.main_menu_scn)
 
 func _on_quit_pressed() -> void:
+	get_tree().paused = false
+	fade_box.fade_in()
+	await get_tree().create_timer(button_delay).timeout
 	get_tree().quit()

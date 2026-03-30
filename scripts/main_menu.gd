@@ -44,6 +44,7 @@ func _on_settings_button_pressed() -> void:
 	show_settings()
 
 func _on_credits_button_pressed() -> void:
+	fade_box.fade_in()
 	await get_tree().create_timer(button_delay).timeout
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 

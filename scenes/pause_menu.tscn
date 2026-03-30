@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://5iamat2fce10" path="res://audio/sfx/button_hover.mp3" id="5_1s2dm"]
 [ext_resource type="PackedScene" uid="uid://cya0cbmgs483l" path="res://scenes/settings.tscn" id="5_88e76"]
 [ext_resource type="AudioStream" uid="uid://c04ktjmsc6dy3" path="res://audio/sfx/button_unhover.mp3" id="6_88e76"]
+[ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="6_knqa7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5d2l8"]
 font = ExtResource("2_kukqi")
@@ -15,7 +16,7 @@ font_size = 40
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="PauseMenu" type="Control" unique_id=1080143956 node_paths=PackedStringArray("pause_ui", "settings_ui")]
+[node name="PauseMenu" type="Control" unique_id=1080143956 node_paths=PackedStringArray("pause_ui", "settings_ui", "fade_box")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -27,6 +28,7 @@ theme = ExtResource("1_myx47")
 script = ExtResource("2_1s2dm")
 pause_ui = NodePath("PauseUI")
 settings_ui = NodePath("Settings")
+fade_box = NodePath("FadeBox")
 
 [node name="PauseUI" type="Control" parent="." unique_id=307409061]
 layout_mode = 1
@@ -109,6 +111,18 @@ press_audio = NodePath("../../../Audio/ButtonPressedAudio")
 [node name="Settings" parent="." unique_id=1943664691 instance=ExtResource("5_88e76")]
 visible = false
 layout_mode = 1
+
+[node name="FadeBox" type="ColorRect" parent="." unique_id=366550745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("6_knqa7")
+metadata/_custom_type_script = "uid://g3ngbum2ke1y"
 
 [node name="Audio" type="Node" parent="." unique_id=806565068]
 
