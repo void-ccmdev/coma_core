@@ -4,6 +4,7 @@ extends Node3D
 @export var pos : Vector2
 
 func _ready() -> void:
+	get_tree().paused = false
 	print("CREDITS")
 	pos = credits.position
 

@@ -147,27 +147,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menu" type="VBoxContainer" parent="CanvasLayer/MenuUI" unique_id=1385900684]
+[node name="Title" type="Label" parent="CanvasLayer/MenuUI" unique_id=1057771528]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = -68.0
-offset_right = 81.0
-offset_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_ekxnf")
-
-[node name="Title" type="Label" parent="CanvasLayer/MenuUI/Menu" unique_id=1057771528]
-layout_mode = 2
+anchors_preset = -1
+anchor_left = 0.324
+anchor_top = 0.23700002
+anchor_right = 0.67600006
+anchor_bottom = 0.36100003
+offset_left = 0.13600159
+offset_top = 0.116996765
+offset_right = -0.13601685
+offset_bottom = 0.0009918213
 text = "ComaCore"
 label_settings = SubResource("LabelSettings_vue75")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/MenuUI" unique_id=1385900684]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38000003
+anchor_top = 0.37100002
+anchor_right = 0.629
+anchor_bottom = 0.71400005
+offset_left = -0.18000793
+offset_top = -0.08900452
+offset_right = 0.03100586
+offset_bottom = 0.07398987
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ekxnf")
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/MenuUI/Menu" unique_id=780227746 node_paths=PackedStringArray("hover_audio", "unhover_audio", "press_audio")]
 layout_mode = 2
