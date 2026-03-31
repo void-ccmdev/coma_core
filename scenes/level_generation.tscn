@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bsffnoyl05jbm"]
+
+[ext_resource type="Script" uid="uid://n6pcd4he870q" path="res://scripts/level_generation.gd" id="1_smw2b"]
+[ext_resource type="PackedScene" uid="uid://ca0c5fkdohaax" path="res://scenes/room_test.tscn" id="2_bni0m"]
+[ext_resource type="PackedScene" uid="uid://knlh5tc08kiy" path="res://scenes/room_test_2.tscn" id="3_a63e5"]
+
+[node name="LevelGeneration" type="Node3D" unique_id=1581160071]
+script = ExtResource("1_smw2b")
+room_scenes = Array[PackedScene]([ExtResource("2_bni0m"), ExtResource("3_a63e5")])
+max_rooms = 20
