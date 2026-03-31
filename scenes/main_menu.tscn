@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cv1uc0qnt8005" path="res://textures/platform_links/twitter_icon.png" id="13_j7ex8"]
 [ext_resource type="PackedScene" uid="uid://cya0cbmgs483l" path="res://scenes/settings.tscn" id="14_a8gd2"]
 [ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="15_hstxw"]
-[ext_resource type="AudioStream" uid="uid://c0iehxy608c4n" path="res://audio/ost/Ammo.wav" id="17_j7ex8"]
+[ext_resource type="AudioStream" uid="uid://dsjkykraq22p7" path="res://audio/ost/Main Menu Track 2 Master.mp3" id="19_hstxw"]
 
 [sub_resource type="Resource" id="Resource_7b55j"]
 script = ExtResource("4_lgwnu")
@@ -285,7 +285,7 @@ stream = ExtResource("4_wu84c")
 stream = ExtResource("5_8ln24")
 
 [node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=1820296379]
-stream = ExtResource("17_j7ex8")
+stream = ExtResource("19_hstxw")
 autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/MenuUI/Menu/PlayButton" to="." method="_on_play_button_pressed"]

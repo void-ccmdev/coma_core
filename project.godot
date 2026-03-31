@@ -22,19 +22,6 @@ buses/default_bus_layout="uid://dwsyipu1l45qh"
 [autoload]
 
 Global="*uid://d0o5r36igmvrg"
-DevConsole="*uid://ccoijpiv8l45j"
-
-[dev_console]
-
-configuration/title_label="CONSOLE"
-configuration/use_default_commands=true
-configuration/view_default_commands=true
-configuration/use_command_history=true
-configuration/background_transparency=0.9
-configuration/keep_size_after_closing=false
-configuration/keep_position_after_closing=false
-configuration/keep_topmost=true
-configuration/debug_only=true
 
 [display]
 
@@ -50,7 +37,7 @@ project/assembly_name="ComaCore"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/array_modifier/plugin.cfg", "res://addons/dev-console/plugin.cfg", "res://addons/post_processing/plugin.cfg", "res://addons/raytraced_audio/plugin.cfg")
+enabled=PackedStringArray("res://addons/array_modifier/plugin.cfg", "res://addons/post_processing/plugin.cfg", "res://addons/raytraced_audio/plugin.cfg")
 
 [global_group]
 

@@ -9,8 +9,8 @@
 [ext_resource type="FontFile" uid="uid://ebp0k43lw3vd" path="res://fonts/Star Crush.ttf" id="6_kyhnv"]
 [ext_resource type="FontFile" uid="uid://k40h0ehqjmlq" path="res://fonts/grapple.ttf" id="7_ooihk"]
 [ext_resource type="FontFile" uid="uid://i6dah6m2367c" path="res://fonts/PIXY.ttf" id="8_ooihk"]
-[ext_resource type="AudioStream" uid="uid://c0iehxy608c4n" path="res://audio/ost/Ammo.wav" id="10_7lgdl"]
 [ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="10_c6kru"]
+[ext_resource type="AudioStream" uid="uid://bxmotx0fhaibx" path="res://audio/ost/Main Menu -Credits Track.mp3" id="11_c6kru"]
 
 [sub_resource type="Resource" id="Resource_7lgdl"]
 script = ExtResource("2_mah5v")
@@ -222,5 +222,5 @@ metadata/_custom_type_script = "uid://g3ngbum2ke1y"
 [node name="Audio" type="Node" parent="." unique_id=1709657616]
 
 [node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=756140559]
-stream = ExtResource("10_7lgdl")
+stream = ExtResource("11_c6kru")
 autoplay = true

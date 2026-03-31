@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="11_tkc5g"]
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="12_2lg2o"]
 [ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="14_mu7u2"]
-[ext_resource type="PackedScene" uid="uid://ccoijpiv8l45j" path="res://addons/dev-console/dev-console.tscn" id="17_063vg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wfq33"]
 material = ExtResource("5_mu7u2")
@@ -124,6 +123,69 @@ mesh = SubResource("BoxMesh_7y4m4")
 [node name="StaticBody3D" type="StaticBody3D" parent="Env/Cubes/Cube4" unique_id=1988676018]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Cubes/Cube4/StaticBody3D" unique_id=786351886]
+shape = SubResource("ConcavePolygonShape3D_re7ow")
+
+[node name="Cube5" type="MeshInstance3D" parent="Env/Cubes" unique_id=2009751714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694339, 1.5000001, 4.658743)
+mesh = SubResource("BoxMesh_7y4m4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Cubes/Cube5" unique_id=1303056011]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Cubes/Cube5/StaticBody3D" unique_id=605596525]
+shape = SubResource("ConcavePolygonShape3D_re7ow")
+
+[node name="Cube8" type="MeshInstance3D" parent="Env/Cubes" unique_id=487292218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694339, 0.5000001, 3.658743)
+mesh = SubResource("BoxMesh_7y4m4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Cubes/Cube8" unique_id=1520729463]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Cubes/Cube8/StaticBody3D" unique_id=806266662]
+shape = SubResource("ConcavePolygonShape3D_re7ow")
+
+[node name="Cube11" type="MeshInstance3D" parent="Env/Cubes" unique_id=814757132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694339, 1.5000001, 3.658743)
+mesh = SubResource("BoxMesh_7y4m4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Cubes/Cube11" unique_id=180961235]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Cubes/Cube11/StaticBody3D" unique_id=655436045]
+shape = SubResource("ConcavePolygonShape3D_re7ow")
+
+[node name="Cube12" type="MeshInstance3D" parent="Env/Cubes" unique_id=1877471345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694339, 0.5000001, 2.658743)
+mesh = SubResource("BoxMesh_7y4m4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Cubes/Cube12" unique_id=1739858979]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Cubes/Cube12/StaticBody3D" unique_id=449437500]
+shape = SubResource("ConcavePolygonShape3D_re7ow")
+
+[node name="Cube13" type="MeshInstance3D" parent="Env/Cubes" unique_id=178961178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694339, 1.5000001, 2.658743)
+mesh = SubResource("BoxMesh_7y4m4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Cubes/Cube13" unique_id=1715922270]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Cubes/Cube13/StaticBody3D" unique_id=1759234934]
+shape = SubResource("ConcavePolygonShape3D_re7ow")
+
+[node name="Cube14" type="MeshInstance3D" parent="Env/Cubes" unique_id=748400006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694339, 0.5000001, 1.6587429)
+mesh = SubResource("BoxMesh_7y4m4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Cubes/Cube14" unique_id=1386030357]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Cubes/Cube14/StaticBody3D" unique_id=1920393414]
+shape = SubResource("ConcavePolygonShape3D_re7ow")
+
+[node name="Cube15" type="MeshInstance3D" parent="Env/Cubes" unique_id=278501484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694339, 1.5000001, 1.6587429)
+mesh = SubResource("BoxMesh_7y4m4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Cubes/Cube15" unique_id=1760893395]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Cubes/Cube15/StaticBody3D" unique_id=1660457795]
 shape = SubResource("ConcavePolygonShape3D_re7ow")
 
 [node name="Cube6" type="MeshInstance3D" parent="Env/Cubes" unique_id=1804936639]
@@ -309,6 +371,3 @@ color = Color(0, 0, 0, 0)
 script = ExtResource("14_mu7u2")
 fade_on_load = true
 metadata/_custom_type_script = "uid://g3ngbum2ke1y"
-
-[node name="DevConsole" parent="." unique_id=303449653 instance=ExtResource("17_063vg")]
-process_mode = 3
