@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="3_sblks"]
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="4_iqyfn"]
 [ext_resource type="Script" uid="uid://ddobs4rdvu2g" path="res://scripts/debug_interactable_obj.gd" id="4_px3r5"]
+[ext_resource type="Material" uid="uid://c558omlyxunva" path="res://materials/brick1.material" id="5_px3r5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iqyfn"]
 material = ExtResource("3_iqyfn")
@@ -16,6 +17,7 @@ size = Vector2(50, 50)
 data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0vr1h"]
+material = ExtResource("5_px3r5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_537bs"]
 
@@ -58,4 +60,5 @@ shape = SubResource("BoxShape3D_537bs")
 player = NodePath("../Player")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2013754842]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0980604, 0.0110844225, -0.9303331)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8292588, 0.0110844225, -2.9554014)
+shadow_enabled = true
