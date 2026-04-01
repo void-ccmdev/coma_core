@@ -7,11 +7,11 @@ extends Button
 @export var press_audio : AudioStreamPlayer
 
 func _ready() -> void:
-	self.mouse_entered.connect(on_hover)
-	self.mouse_exited.connect(on_unhover)
-	self.button_down.connect(on_press)
-	self.button_up.connect(on_press)
-
+	if is_inside_tree():
+		self.mouse_entered.connect(on_hover)
+		self.mouse_exited.connect(on_unhover)
+		self.button_down.connect(on_press)
+		self.button_up.connect(on_press)
 
 func randomize_audio_pitch(audio : AudioStreamPlayer) -> void:
 	var random = randf_range(0.85, 1.15)

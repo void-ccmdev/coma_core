@@ -18,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="12_2lg2o"]
 [ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="14_mu7u2"]
 [ext_resource type="PackedScene" uid="uid://bsffnoyl05jbm" path="res://scenes/level_generation.tscn" id="18_d4ekg"]
+[ext_resource type="PackedScene" uid="uid://ca0c5fkdohaax" path="res://scenes/room_test.tscn" id="19_xjlht"]
+[ext_resource type="PackedScene" uid="uid://knlh5tc08kiy" path="res://scenes/room_test_2.tscn" id="20_nvrag"]
+[ext_resource type="PackedScene" uid="uid://dy88b78ual4nf" path="res://scenes/room_test_3.tscn" id="21_1sxhw"]
+[ext_resource type="PackedScene" uid="uid://dy34h7x2m6sw5" path="res://scenes/room_test_4.tscn" id="22_nvrag"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wfq33"]
 material = ExtResource("5_mu7u2")
@@ -376,3 +380,5 @@ metadata/_custom_type_script = "uid://g3ngbum2ke1y"
 
 [node name="LevelGeneration" parent="." unique_id=1581160071 instance=ExtResource("18_d4ekg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, 0)
+room_scenes = Array[PackedScene]([ExtResource("19_xjlht"), ExtResource("20_nvrag"), ExtResource("21_1sxhw"), ExtResource("22_nvrag")])
+max_rooms = 100

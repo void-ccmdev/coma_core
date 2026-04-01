@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dy34h7x2m6sw5"]
+
+[ext_resource type="Script" uid="uid://bpvkje46jbcn5" path="res://scripts/room_generator.gd" id="1_npawq"]
+[ext_resource type="Material" uid="uid://dp48vbalvb5ll" path="res://materials/wooden_tiles.material" id="2_uotbv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ald6"]
+material = ExtResource("2_uotbv")
+size = Vector3(3, 1, 2)
+
+[node name="RoomTest4" type="Node3D" unique_id=2049514417 node_paths=PackedStringArray("end_point")]
+script = ExtResource("1_npawq")
+end_point = NodePath("Marker3D")
+direction = "left"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=939767617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+mesh = SubResource("BoxMesh_2ald6")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=786299902]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 0, -1.0000002)
