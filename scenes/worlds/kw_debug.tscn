@@ -11,7 +11,7 @@
 [ext_resource type="Material" uid="uid://dcgna8i4tt1k2" path="res://materials/tiles_1.material" id="8_d4ekg"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="8_i2pbu"]
 [ext_resource type="Script" uid="uid://dhjuxj6xluuce" path="res://addons/array_modifier/ArrayModifier.gd" id="9_ml6ks"]
-[ext_resource type="AudioStream" uid="uid://c0iehxy608c4n" path="res://audio/ost/Ammo.wav" id="10_d4ekg"]
+[ext_resource type="AudioStream" uid="uid://dxuikdyes7tob" path="res://audio/ost/luigi-boccherini-minuetto-(classical)-made-with-Voicemod.mp3" id="10_nvrag"]
 [ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="10_tkc5g"]
 [ext_resource type="Script" uid="uid://ddobs4rdvu2g" path="res://scripts/debug_interactable_obj.gd" id="11_8foen"]
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="11_tkc5g"]
@@ -284,7 +284,7 @@ omni_attenuation = -0.313
 mesh = SubResource("BoxMesh_vd3ub")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Env/Room/OmniLight3D" unique_id=738921248]
-stream = ExtResource("10_d4ekg")
+stream = ExtResource("10_nvrag")
 autoplay = true
 bus = &"RaytracedReverb"
 doppler_tracking = 2
