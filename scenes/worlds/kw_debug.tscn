@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="1_ue66r"]
 [ext_resource type="Resource" uid="uid://c0dsfxhwb8bwe" path="res://addons/post_processing/resource/no_effects_example.tres" id="2_ml6ks"]
 [ext_resource type="PackedScene" uid="uid://c8c005i0y36v8" path="res://scenes/player.tscn" id="2_re7ow"]
-[ext_resource type="Environment" uid="uid://beoe7jrwft7rb" path="res://resources/env_main.tres" id="3_2lg2o"]
 [ext_resource type="Material" uid="uid://c77mi41mu873k" path="res://materials/grass_prot.material" id="5_mu7u2"]
 [ext_resource type="Material" uid="uid://dp48vbalvb5ll" path="res://materials/wooden_tiles.material" id="6_0mj1u"]
 [ext_resource type="Material" uid="uid://c558omlyxunva" path="res://materials/brick1.material" id="6_mcj0t"]
@@ -17,11 +16,30 @@
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="11_tkc5g"]
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="12_2lg2o"]
 [ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="14_mu7u2"]
-[ext_resource type="PackedScene" uid="uid://bsffnoyl05jbm" path="res://scenes/level_generation.tscn" id="18_d4ekg"]
-[ext_resource type="PackedScene" uid="uid://ca0c5fkdohaax" path="res://scenes/room_test.tscn" id="19_xjlht"]
-[ext_resource type="PackedScene" uid="uid://knlh5tc08kiy" path="res://scenes/room_test_2.tscn" id="20_nvrag"]
-[ext_resource type="PackedScene" uid="uid://dy88b78ual4nf" path="res://scenes/room_test_3.tscn" id="21_1sxhw"]
-[ext_resource type="PackedScene" uid="uid://dy34h7x2m6sw5" path="res://scenes/room_test_4.tscn" id="22_nvrag"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ualg"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_re7ow"]
+sky_material = SubResource("ProceduralSkyMaterial_6ualg")
+
+[sub_resource type="Environment" id="Environment_0mj1u"]
+background_mode = 2
+sky = SubResource("Sky_re7ow")
+tonemap_mode = 3
+ssr_enabled = true
+ssr_max_steps = 45
+ssr_fade_in = 5.9490718e-05
+ssr_fade_out = 0.031250134
+ssr_depth_tolerance = 36.71
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.1
+glow_bloom = 1.0
+glow_blend_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wfq33"]
 material = ExtResource("5_mu7u2")
@@ -77,7 +95,7 @@ transform = Transform3D(-0.7831328, -0.6123725, 0.10818027, 0.48964974, -0.50000
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=364642826]
-environment = ExtResource("3_2lg2o")
+environment = SubResource("Environment_0mj1u")
 
 [node name="Player" parent="." unique_id=1996494235 instance=ExtResource("2_re7ow")]
 
@@ -378,7 +396,7 @@ fade_color = Color(0, 0, 0, 1)
 fade_on_load = true
 metadata/_custom_type_script = "uid://g3ngbum2ke1y"
 
-[node name="LevelGeneration" parent="." unique_id=1581160071 instance=ExtResource("18_d4ekg")]
+[node name="LevelGeneration" parent="." unique_id=1581160071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, 0)
-room_scenes = Array[PackedScene]([ExtResource("19_xjlht"), ExtResource("20_nvrag"), ExtResource("21_1sxhw"), ExtResource("22_nvrag")])
+room_scenes = Array[PackedScene]([])
 max_rooms = 100
