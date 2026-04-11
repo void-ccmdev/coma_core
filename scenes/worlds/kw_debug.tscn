@@ -395,8 +395,3 @@ script = ExtResource("14_mu7u2")
 fade_color = Color(0, 0, 0, 1)
 fade_on_load = true
 metadata/_custom_type_script = "uid://g3ngbum2ke1y"
-
-[node name="LevelGeneration" parent="." unique_id=1581160071]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, 0)
-room_scenes = Array[PackedScene]([])
-max_rooms = 100
