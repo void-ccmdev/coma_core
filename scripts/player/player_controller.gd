@@ -4,6 +4,7 @@ class_name PlayerController extends CharacterBody3D
 
 @export_group("Abilities")
 @export var can_sprint : bool = true
+@export var can_jump : bool = true
 
 @export_group("Settings")
 @export var walk_speed : float = 3.5
@@ -27,13 +28,16 @@ func _input(event: InputEvent) -> void:
 		else:
 			create_tween().tween_property(self, "current_speed", walk_speed, 0.25)
 			sprinting = false
+	else:
+		create_tween().tween_property(self, "current_speed", walk_speed, 0.25)
+		sprinting = false
 		
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() && can_jump:
 		velocity.y = jump_power
 
 	var input_dir := Input.get_vector("left", "right", "front", "back")

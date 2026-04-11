@@ -2,6 +2,7 @@ class_name Flashlight extends SpotLight3D
 
 
 @export var on : bool = true
+@export var unlocked : bool = true
 
 @export_group("Settings")
 @export var parent : Camera3D
@@ -13,7 +14,7 @@ class_name Flashlight extends SpotLight3D
 func _ready() -> void:
 	print("Flashlight Script Loaded!")
 
-	if on:
+	if on && unlocked:
 		self.show()
 	else:
 		self.hide()
@@ -26,7 +27,7 @@ func fl_click() -> void:
 		audio_node.play()
 		
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("flashlight"):
+	if Input.is_action_just_pressed("flashlight") && unlocked:
 		if on:
 			self.hide()
 			on = false

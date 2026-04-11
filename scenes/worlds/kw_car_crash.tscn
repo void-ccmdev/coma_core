@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://cnoyjupbgdh1p"]
+
+[ext_resource type="Texture2D" uid="uid://itnsedvp10fu" path="res://textures/NightSkyHDRI001_1K_HDR.exr" id="1_ajjph"]
+[ext_resource type="Material" uid="uid://bl3d27fmoqcwr" path="res://materials/snow.material" id="1_leipc"]
+[ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="2_towpc"]
+[ext_resource type="PackedScene" uid="uid://b7ye1s2muhp28" path="res://scenes/trees/trees.tscn" id="4_vgtv2"]
+[ext_resource type="PackedScene" uid="uid://dh6iggvt04mhm" path="res://scenes/trees/tree_3.tscn" id="5_pd3hm"]
+[ext_resource type="PackedScene" uid="uid://c8c005i0y36v8" path="res://scenes/player.tscn" id="6_pd3hm"]
+[ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="7_f8jfx"]
+[ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="8_r5vvi"]
+[ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="14_f7s7g"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k3x8b"]
+panorama = ExtResource("1_ajjph")
+
+[sub_resource type="Sky" id="Sky_vgtv2"]
+sky_material = SubResource("PanoramaSkyMaterial_k3x8b")
+process_mode = 1
+radiance_size = 6
+
+[sub_resource type="Environment" id="Environment_pd3hm"]
+background_mode = 2
+sky = SubResource("Sky_vgtv2")
+sky_rotation = Vector3(0, 0, 1.5707964)
+ambient_light_source = 3
+ambient_light_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 12.23
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.315
+volumetric_fog_sky_affect = 0.577
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_towpc"]
+material = ExtResource("1_leipc")
+size = Vector2(250, 250)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vgtv2"]
+data = PackedVector3Array(125, 0, 125, -125, 0, 125, 125, 0, -125, -125, 0, 125, -125, 0, -125, 125, 0, -125)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ajjph"]
+material = ExtResource("2_towpc")
+size = Vector2(4, 250)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pd3hm"]
+size = Vector3(1, 5, 250)
+
+[node name="CarCrash" type="Node3D" unique_id=657294163]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1487171283]
+environment = SubResource("Environment_pd3hm")
+
+[node name="Env" type="Node3D" parent="." unique_id=1985011630]
+
+[node name="Ground" type="MeshInstance3D" parent="Env" unique_id=728757957]
+mesh = SubResource("PlaneMesh_towpc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Ground" unique_id=278453807]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Ground/StaticBody3D" unique_id=970224884]
+shape = SubResource("ConcavePolygonShape3D_vgtv2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Env" unique_id=902323583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014210463, 0)
+mesh = SubResource("PlaneMesh_ajjph")
+
+[node name="Trees" parent="Env" unique_id=926159597 instance=ExtResource("4_vgtv2")]
+
+[node name="TreeWall" parent="Env" unique_id=964501799 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, -3.874302e-07)
+
+[node name="TreeWall2" parent="Env" unique_id=1149902270 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 12)
+
+[node name="TreeWall3" parent="Env" unique_id=488060931 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 25)
+
+[node name="TreeWall4" parent="Env" unique_id=1748541245 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 37)
+
+[node name="TreeWall5" parent="Env" unique_id=1378622340 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 46)
+
+[node name="TreeWall6" parent="Env" unique_id=1177622755 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 60)
+
+[node name="TreeWall7" parent="Env" unique_id=1337962929 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 71)
+
+[node name="TreeWall8" parent="Env" unique_id=2134950988 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -11.999999, 0, 88)
+
+[node name="TreeWall9" parent="Env" unique_id=1952254072 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -42.999996)
+
+[node name="TreeWall10" parent="Env" unique_id=1397417012 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000004, 0, -81)
+
+[node name="TreeWall11" parent="Env" unique_id=1381163735 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -35.999996)
+
+[node name="TreeWall12" parent="Env" unique_id=532175895 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000002, 0, 4.000003)
+
+[node name="TreeWall13" parent="Env" unique_id=861615279 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -12.999997)
+
+[node name="TreeWall14" parent="Env" unique_id=1473630706 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 2.5431973e-06)
+
+[node name="TreeWall15" parent="Env" unique_id=1266476146 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 12.000003)
+
+[node name="TreeWall16" parent="Env" unique_id=1856347835 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 25.000004)
+
+[node name="TreeWall17" parent="Env" unique_id=392493508 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 37.000004)
+
+[node name="TreeWall18" parent="Env" unique_id=1477594774 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 46.000004)
+
+[node name="TreeWall19" parent="Env" unique_id=1557775639 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 60.000004)
+
+[node name="TreeWall20" parent="Env" unique_id=924745079 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 71)
+
+[node name="TreeWall21" parent="Env" unique_id=1814275091 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -11.999999, 0, 88)
+
+[node name="TreeWall22" parent="Env" unique_id=494423162 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -42.999996)
+
+[node name="TreeWall23" parent="Env" unique_id=919186441 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000004, 0, -81)
+
+[node name="TreeWall24" parent="Env" unique_id=852916240 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -35.999996)
+
+[node name="TreeWall25" parent="Env" unique_id=407059810 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000002, 0, 4.000003)
+
+[node name="TreeWall26" parent="Env" unique_id=1277545642 instance=ExtResource("5_pd3hm")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -12.999997)
+
+[node name="Player" parent="." unique_id=1996494235 instance=ExtResource("6_pd3hm")]
+can_sprint = false
+can_jump = false
+
+[node name="Flashlight" parent="Player/CameraController" parent_id_path=PackedInt32Array(1996494235, 313063645) index="1" unique_id=2133561910]
+unlocked = false
+
+[node name="Barriers" type="Node3D" parent="." unique_id=795826216]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barriers" unique_id=113120564]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barriers/StaticBody3D" unique_id=2113102510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 0)
+shape = SubResource("BoxShape3D_pd3hm")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Barriers/StaticBody3D" unique_id=1687624967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 0)
+shape = SubResource("BoxShape3D_pd3hm")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="DebugScreen" parent="." unique_id=822355395 node_paths=PackedStringArray("player") instance=ExtResource("7_f8jfx")]
+player = NodePath("")
+
+[node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("8_r5vvi")]
+
+[node name="FadeBox" type="ColorRect" parent="." unique_id=711328079]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("14_f7s7g")
+fade_color = Color(0, 0, 0, 1)
+fade_on_load = true
+metadata/_custom_type_script = "uid://g3ngbum2ke1y"
+
+[editable path="Player"]
