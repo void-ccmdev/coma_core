@@ -669,7 +669,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0575695, -1.3015435, 21.99
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4778185, 0, 4.2358384)
 
 [node name="Tree6" parent="Trees31" unique_id=296241004 instance=ExtResource("1_xiaev")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.636638, -9.536743e-07, -6.51373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.636638, 0.99999905, -6.51373)
 
 [node name="Tree7" parent="Trees31" unique_id=1743007540 instance=ExtResource("1_xiaev")]
 transform = Transform3D(0.9151568, 0, 0.4030981, 0, 1, 0, -0.4030981, 0, 0.9151568, -6.296098, 0, -2.3303385)
