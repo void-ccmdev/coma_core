@@ -65,82 +65,82 @@ mesh = SubResource("PlaneMesh_ajjph")
 
 [node name="Trees" parent="Env" unique_id=926159597 instance=ExtResource("4_vgtv2")]
 
-[node name="TreeWall" parent="Env" unique_id=964501799 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall" parent="Env/Trees" unique_id=964501799 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, -3.874302e-07)
 
-[node name="TreeWall2" parent="Env" unique_id=1149902270 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall2" parent="Env/Trees" unique_id=1149902270 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 12)
 
-[node name="TreeWall3" parent="Env" unique_id=488060931 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall3" parent="Env/Trees" unique_id=488060931 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 25)
 
-[node name="TreeWall4" parent="Env" unique_id=1748541245 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall4" parent="Env/Trees" unique_id=1748541245 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 37)
 
-[node name="TreeWall5" parent="Env" unique_id=1378622340 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall5" parent="Env/Trees" unique_id=1378622340 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 46)
 
-[node name="TreeWall6" parent="Env" unique_id=1177622755 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall6" parent="Env/Trees" unique_id=1177622755 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 13, 0, 60)
 
-[node name="TreeWall7" parent="Env" unique_id=1337962929 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall7" parent="Env/Trees" unique_id=1337962929 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 71)
 
-[node name="TreeWall8" parent="Env" unique_id=2134950988 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall8" parent="Env/Trees" unique_id=2134950988 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -11.999999, 0, 88)
 
-[node name="TreeWall9" parent="Env" unique_id=1952254072 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall9" parent="Env/Trees" unique_id=1952254072 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -42.999996)
 
-[node name="TreeWall10" parent="Env" unique_id=1397417012 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall10" parent="Env/Trees" unique_id=1397417012 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000004, 0, -81)
 
-[node name="TreeWall11" parent="Env" unique_id=1381163735 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall11" parent="Env/Trees" unique_id=1381163735 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -35.999996)
 
-[node name="TreeWall12" parent="Env" unique_id=532175895 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall12" parent="Env/Trees" unique_id=532175895 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000002, 0, 4.000003)
 
-[node name="TreeWall13" parent="Env" unique_id=861615279 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall13" parent="Env/Trees" unique_id=861615279 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -12.999997)
 
-[node name="TreeWall14" parent="Env" unique_id=1473630706 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall14" parent="Env/Trees" unique_id=1473630706 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 2.5431973e-06)
 
-[node name="TreeWall15" parent="Env" unique_id=1266476146 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall15" parent="Env/Trees" unique_id=1266476146 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 12.000003)
 
-[node name="TreeWall16" parent="Env" unique_id=1856347835 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall16" parent="Env/Trees" unique_id=1856347835 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 25.000004)
 
-[node name="TreeWall17" parent="Env" unique_id=392493508 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall17" parent="Env/Trees" unique_id=392493508 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 37.000004)
 
-[node name="TreeWall18" parent="Env" unique_id=1477594774 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall18" parent="Env/Trees" unique_id=1477594774 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 46.000004)
 
-[node name="TreeWall19" parent="Env" unique_id=1557775639 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall19" parent="Env/Trees" unique_id=1557775639 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 60.000004)
 
-[node name="TreeWall20" parent="Env" unique_id=924745079 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall20" parent="Env/Trees" unique_id=924745079 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12, 0, 71)
 
-[node name="TreeWall21" parent="Env" unique_id=1814275091 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall21" parent="Env/Trees" unique_id=1814275091 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -11.999999, 0, 88)
 
-[node name="TreeWall22" parent="Env" unique_id=494423162 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall22" parent="Env/Trees" unique_id=494423162 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -42.999996)
 
-[node name="TreeWall23" parent="Env" unique_id=919186441 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall23" parent="Env/Trees" unique_id=919186441 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000004, 0, -81)
 
-[node name="TreeWall24" parent="Env" unique_id=852916240 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall24" parent="Env/Trees" unique_id=852916240 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -35.999996)
 
-[node name="TreeWall25" parent="Env" unique_id=407059810 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall25" parent="Env/Trees" unique_id=407059810 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000002, 0, 4.000003)
 
-[node name="TreeWall26" parent="Env" unique_id=1277545642 instance=ExtResource("5_pd3hm")]
+[node name="TreeWall26" parent="Env/Trees" unique_id=1277545642 instance=ExtResource("5_pd3hm")]
 transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, -12.000003, 0, -12.999997)
 
 [node name="Player" parent="." unique_id=1996494235 instance=ExtResource("6_pd3hm")]
@@ -164,8 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 0)
 shape = SubResource("BoxShape3D_pd3hm")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="DebugScreen" parent="." unique_id=822355395 node_paths=PackedStringArray("player") instance=ExtResource("7_f8jfx")]
-player = NodePath("")
+[node name="DebugScreen" parent="." unique_id=822355395 instance=ExtResource("7_f8jfx")]
 
 [node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("8_r5vvi")]
 

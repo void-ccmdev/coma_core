@@ -18,6 +18,9 @@ size = Vector2(5, 5)
 height = 5.045853
 radius = 0.123046875
 
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_j8th4"]
+size = Vector3(0.35184455, 4.7032843, 0.34223136)
+
 [node name="Tree2" type="StaticBody3D" unique_id=1610882800]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=861448218]
@@ -35,3 +38,7 @@ mesh = SubResource("PlaneMesh_xvalw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1488526368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.522619, 0)
 shape = SubResource("CylinderShape3D_50frr")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=200132189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3937201, 0)
+occluder = SubResource("BoxOccluder3D_j8th4")
