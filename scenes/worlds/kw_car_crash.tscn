@@ -62,6 +62,7 @@ environment = SubResource("Environment_pd3hm")
 [node name="Env" type="Node3D" parent="." unique_id=1985011630]
 
 [node name="Ground" type="MeshInstance3D" parent="Env" unique_id=728757957]
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_towpc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Env/Ground" unique_id=278453807]
@@ -69,8 +70,9 @@ mesh = SubResource("PlaneMesh_towpc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Ground/StaticBody3D" unique_id=970224884]
 shape = SubResource("ConcavePolygonShape3D_vgtv2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Env" unique_id=902323583]
+[node name="Road" type="MeshInstance3D" parent="Env" unique_id=902323583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014210463, 0)
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_ajjph")
 
 [node name="Trees" parent="Env" unique_id=926159597 instance=ExtResource("4_vgtv2")]
@@ -118,6 +120,7 @@ mesh = SubResource("BoxMesh_r5vvi")
 [node name="SpotLight3D" type="SpotLight3D" parent="Env/Light" unique_id=7653659]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 light_energy = 16.0
+light_specular = 10.447
 shadow_enabled = true
 spot_range = 11.0
 spot_angle = 53.793304
