@@ -7,11 +7,15 @@ transparency = 2
 alpha_scissor_threshold = 0.024
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("1_p8cr7")
+uv1_scale = Vector3(0.13, 0.13, 0.13)
+uv1_offset = Vector3(0, 0.5, 0.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 18.379166
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8djag"]
 material = SubResource("StandardMaterial3D_70hwh")
-size = Vector2(10, 7.5)
+size = Vector2(250, 7.5)
 
 [node name="TreeWall" type="Node3D" unique_id=964501799]
 
