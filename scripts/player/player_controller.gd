@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("jump") and is_on_floor() && can_jump:
+	if Input.is_action_just_pressed("jump") and is_on_floor() && can_jump	:
 		velocity.y = jump_power
 
 	var input_dir := Input.get_vector("left", "right", "front", "back")

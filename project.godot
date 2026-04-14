@@ -43,6 +43,7 @@ enabled=PackedStringArray("res://addons/array_modifier/plugin.cfg", "res://addon
 
 StairStep=""
 Interactable=""
+Player=""
 
 [input]
 
