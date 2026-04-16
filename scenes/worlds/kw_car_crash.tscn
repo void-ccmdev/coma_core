@@ -5,7 +5,9 @@
 [ext_resource type="Material" uid="uid://bl3d27fmoqcwr" path="res://materials/snow.material" id="1_leipc"]
 [ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="2_towpc"]
 [ext_resource type="PackedScene" uid="uid://slntuiqexwsy" path="res://scenes/worlds/kw_debug.tscn" id="2_wrc53"]
+[ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="4_a3qra"]
 [ext_resource type="PackedScene" uid="uid://b7ye1s2muhp28" path="res://scenes/trees/trees.tscn" id="4_vgtv2"]
+[ext_resource type="Resource" uid="uid://d1sss6nperjoj" path="res://post_process_configs/pos_process_config1.tres" id="5_1n4fv"]
 [ext_resource type="PackedScene" uid="uid://dh6iggvt04mhm" path="res://scenes/trees/tree_3.tscn" id="5_pd3hm"]
 [ext_resource type="PackedScene" uid="uid://c8c005i0y36v8" path="res://scenes/player.tscn" id="6_pd3hm"]
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="7_f8jfx"]
@@ -84,6 +86,11 @@ next_scene = ExtResource("2_wrc53")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1487171283]
 environment = SubResource("Environment_pd3hm")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=1110933196]
+script = ExtResource("4_a3qra")
+configuration = ExtResource("5_1n4fv")
+metadata/_custom_type_script = "uid://brobovje4yggv"
 
 [node name="Env" type="Node3D" parent="." unique_id=1985011630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27)
@@ -167,7 +174,7 @@ shape = SubResource("BoxShape3D_pd3hm")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." unique_id=1996494235 instance=ExtResource("6_pd3hm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 can_sprint = false
 can_jump = false
 

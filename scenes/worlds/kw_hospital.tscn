@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://buwvt8v5aushr"]
+
+[ext_resource type="Script" uid="uid://bmyy5h34ratq6" path="res://scripts/kw_hospital.gd" id="1_1yhfs"]
+[ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="1_umswe"]
+[ext_resource type="Resource" uid="uid://d1sss6nperjoj" path="res://post_process_configs/pos_process_config1.tres" id="2_1yhfs"]
+[ext_resource type="PackedScene" uid="uid://x6h7f4cf0ae3" path="res://scenes/worlds/kw_modules/kw_hospital_module_main.tscn" id="2_bvvs8"]
+[ext_resource type="Environment" uid="uid://dm2p274r26y65" path="res://main_env.tres" id="3_kmpf2"]
+[ext_resource type="PackedScene" uid="uid://c8c005i0y36v8" path="res://scenes/player.tscn" id="5_ptbb2"]
+[ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="6_axrn0"]
+[ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="7_kmpf2"]
+[ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="8_pglqd"]
+
+[node name="HospitalLevel" type="Node3D" unique_id=1151958966 node_paths=PackedStringArray("module_container")]
+script = ExtResource("1_1yhfs")
+modules = Array[PackedScene]([ExtResource("2_bvvs8")])
+module_container = NodePath("Env/Level")
+level_scale_xz = 5
+module_scale_xz = 25
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2068054445]
+environment = ExtResource("3_kmpf2")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=2034835283]
+script = ExtResource("1_umswe")
+configuration = ExtResource("2_1yhfs")
+metadata/_custom_type_script = "uid://brobovje4yggv"
+
+[node name="Env" type="Node3D" parent="." unique_id=752757822]
+
+[node name="Level" type="Node3D" parent="Env" unique_id=244516783]
+
+[node name="Player" parent="." unique_id=1996494235 instance=ExtResource("5_ptbb2")]
+
+[node name="DebugScreen" parent="." unique_id=822355395 node_paths=PackedStringArray("player") instance=ExtResource("6_axrn0")]
+player = NodePath("")
+
+[node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("7_kmpf2")]
+
+[node name="FadeBox" type="ColorRect" parent="." unique_id=1576118572]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("8_pglqd")
+fade_color = Color(0, 0, 0, 1)
+fade_on_load = true
+metadata/_custom_type_script = "uid://g3ngbum2ke1y"
