@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://c2tbwdq2h21sf" path="res://themes/menu_basic_theme.theme" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://k40h0ehqjmlq" path="res://fonts/grapple.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://cvom46l87rh3q" path="res://scripts/main_menu.gd" id="1_oa1go"]
-[ext_resource type="PackedScene" uid="uid://slntuiqexwsy" path="res://scenes/worlds/kw_debug.tscn" id="2_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://cnoyjupbgdh1p" path="res://scenes/worlds/kw_car_crash.tscn" id="2_hstxw"]
 [ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="3_5dd4i"]
 [ext_resource type="Script" uid="uid://2gb05wiib87c" path="res://scripts/immersive_button.gd" id="3_bqqt6"]
 [ext_resource type="Script" uid="uid://cal7vmnmw616a" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="4_lgwnu"]
@@ -97,7 +97,7 @@ script = ExtResource("1_oa1go")
 menu_ui = NodePath("CanvasLayer/MenuUI")
 settings_ui = NodePath("CanvasLayer/Settings")
 fade_box = NodePath("CanvasLayer/FadeBox")
-next_scene = ExtResource("2_tbmy8")
+next_scene = ExtResource("2_hstxw")
 github_link = "https://github.com/void-ccmdev"
 itchio_link = "https://void-ccmdev.itch.io/"
 twitter_link = "https://x.com/ccmdev_"

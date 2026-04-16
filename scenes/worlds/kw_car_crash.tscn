@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://itnsedvp10fu" path="res://textures/NightSkyHDRI001_1K_HDR.exr" id="1_ajjph"]
 [ext_resource type="Material" uid="uid://bl3d27fmoqcwr" path="res://materials/snow.material" id="1_leipc"]
 [ext_resource type="Material" uid="uid://devp1hnjgmkfg" path="res://materials/road.material" id="2_towpc"]
+[ext_resource type="PackedScene" uid="uid://slntuiqexwsy" path="res://scenes/worlds/kw_debug.tscn" id="2_wrc53"]
 [ext_resource type="PackedScene" uid="uid://b7ye1s2muhp28" path="res://scenes/trees/trees.tscn" id="4_vgtv2"]
 [ext_resource type="PackedScene" uid="uid://dh6iggvt04mhm" path="res://scenes/trees/tree_3.tscn" id="5_pd3hm"]
 [ext_resource type="PackedScene" uid="uid://c8c005i0y36v8" path="res://scenes/player.tscn" id="6_pd3hm"]
@@ -63,14 +64,23 @@ disable_fog = true
 material = SubResource("StandardMaterial3D_f8jfx")
 size = Vector3(0.3, 0.3, 0.3)
 
+[sub_resource type="BoxMesh" id="BoxMesh_2qwpl"]
+size = Vector3(2.6, 2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2qwpl"]
+size = Vector3(7, 6, 8)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_cewr0"]
 size = Vector3(11.155, 5, 1)
 
-[node name="CarCrash" type="Node3D" unique_id=657294163 node_paths=PackedStringArray("trigger_vol", "car_node", "player")]
+[node name="CarCrash" type="Node3D" unique_id=657294163 node_paths=PackedStringArray("trigger_vol", "car_node", "player", "car_trigger", "fade_box")]
 script = ExtResource("1_2qwpl")
 trigger_vol = NodePath("TriggerVolume")
 car_node = NodePath("Car")
 player = NodePath("Player")
+car_trigger = NodePath("Car/CarTrigger")
+fade_box = NodePath("FadeBox")
+next_scene = ExtResource("2_wrc53")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1487171283]
 environment = SubResource("Environment_pd3hm")
@@ -157,6 +167,7 @@ shape = SubResource("BoxShape3D_pd3hm")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." unique_id=1996494235 instance=ExtResource("6_pd3hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
 can_sprint = false
 can_jump = false
 
@@ -164,7 +175,7 @@ can_jump = false
 unlocked = false
 
 [node name="Car" type="Node3D" parent="." unique_id=1719514821]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.9999962, 1, -28)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 1, -195)
 
 [node name="Light" type="MeshInstance3D" parent="Car" unique_id=218980227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
@@ -190,6 +201,20 @@ shadow_enabled = true
 spot_range = 20.0
 spot_angle = 35.63906
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Car" unique_id=598366529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("BoxMesh_2qwpl")
+
+[node name="CarTrigger" type="Area3D" parent="Car" unique_id=1746294646]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("11_wrc53")
+metadata/_custom_type_script = "uid://bow8rvmchj1gh"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/CarTrigger" unique_id=526349415]
+transform = Transform3D(0.9999772, 0, 0, 0, 1, 0, 0, 0, 0.9999772, -1.3709054e-06, 1.5, 3.4999542)
+shape = SubResource("BoxShape3D_2qwpl")
+
 [node name="DebugScreen" parent="." unique_id=822355395 instance=ExtResource("7_f8jfx")]
 
 [node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("8_r5vvi")]
@@ -209,6 +234,7 @@ metadata/_custom_type_script = "uid://g3ngbum2ke1y"
 
 [node name="TriggerVolume" type="Area3D" parent="." unique_id=648883938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+collision_mask = 3
 script = ExtResource("11_wrc53")
 metadata/_custom_type_script = "uid://bow8rvmchj1gh"
 
@@ -217,6 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -11)
 shape = SubResource("BoxShape3D_cewr0")
 debug_color = Color(0.26841292, 0.6299529, 7.70092e-07, 1)
 
+[connection signal="body_entered" from="Car/CarTrigger" to="." method="_on_car_trigger_body_entered"]
 [connection signal="body_entered" from="TriggerVolume" to="." method="_on_trigger_volume_body_entered"]
 
 [editable path="Player"]

@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://bow8rvmchj1gh" path="res://scripts/trigger_volume.gd" id="1_4g642"]
 
 [node name="TriggerVolume" type="Area3D" unique_id=1883216458]
+collision_mask = 2
 script = ExtResource("1_4g642")
