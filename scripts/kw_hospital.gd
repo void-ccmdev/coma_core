@@ -41,7 +41,8 @@ func generate_module(pos : Vector3) -> void:
 	else:
 		random_rotation_y = 0
 	
-	module_i.rotation.y = deg_to_rad(random_rotation_y)
+	if module_i.room_module:
+		module_i.rotation.y = deg_to_rad(random_rotation_y)
 	module_i.position = pos
 
 	module_container.add_child(module_i)

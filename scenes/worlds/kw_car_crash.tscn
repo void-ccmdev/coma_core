@@ -222,7 +222,8 @@ metadata/_custom_type_script = "uid://bow8rvmchj1gh"
 transform = Transform3D(0.9999772, 0, 0, 0, 1, 0, 0, 0, 0.9999772, -1.3709054e-06, 1.5, 3.4999542)
 shape = SubResource("BoxShape3D_2qwpl")
 
-[node name="DebugScreen" parent="." unique_id=822355395 instance=ExtResource("7_f8jfx")]
+[node name="DebugScreen" parent="." unique_id=822355395 node_paths=PackedStringArray("player") instance=ExtResource("7_f8jfx")]
+player = NodePath("../Player")
 
 [node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("8_r5vvi")]
 

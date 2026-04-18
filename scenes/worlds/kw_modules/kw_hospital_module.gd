@@ -3,6 +3,7 @@ extends Node3D
 @export var raycasts : Node3D
 @export var end_walls : Node3D
 @export var has_neighbors : bool
+@export var room_module : bool
 
 func check_neighbors() -> void:
 	for raycast : RayCast3D in raycasts.get_children():
