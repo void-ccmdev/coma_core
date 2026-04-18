@@ -16,7 +16,7 @@
 script = ExtResource("1_1yhfs")
 modules = Array[PackedScene]([ExtResource("2_bvvs8"), ExtResource("3_pglqd"), ExtResource("4_5ak55"), ExtResource("2_bvvs8"), ExtResource("2_bvvs8")])
 module_container = NodePath("Env/Level")
-level_scale_xz = 50
+level_scale_xz = 25
 module_scale_xz = 25
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2068054445]

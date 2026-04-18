@@ -17,6 +17,9 @@ func _ready() -> void:
 func car_movement():
 	var ts = get_tree().create_tween()
 	ts.tween_property(car_node, "global_position", trigger_pos, 0.75);
+	if plr_hit:
+		ts.kill()
+		ts.stop()
 
 func _on_trigger_volume_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") && is_inside_tree():
