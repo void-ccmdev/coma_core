@@ -116,6 +116,7 @@ dev_console_toggle={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/limits/max_bodies=26214400
 
 [raytraced_audio]
 

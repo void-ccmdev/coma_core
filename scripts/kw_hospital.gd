@@ -28,7 +28,20 @@ func generate_module(pos : Vector3) -> void:
 	var random : int = randi_range(1, modules.size())
 	var module : PackedScene = modules.get(random - 1)
 	var module_i : Node3D = module.instantiate()
+	var random_rotation_y
 
+	random = randi_range(1,3)
+	
+	if random == 1:
+		random_rotation_y = 90
+	elif random == 2:
+		random_rotation_y = 180
+	elif random == 3:
+		random_rotation_y = 270
+	else:
+		random_rotation_y = 0
+	
+	module_i.rotation.y = deg_to_rad(random_rotation_y)
 	module_i.position = pos
 
 	module_container.add_child(module_i)

@@ -2,12 +2,14 @@ extends Node3D
 
 @export var raycasts : Node3D
 @export var end_walls : Node3D
+@export var has_neighbors : bool
 
 func check_neighbors() -> void:
 	for raycast : RayCast3D in raycasts.get_children():
 		if !raycast.is_colliding():
 			raycast.queue_free()
 		else:
+			has_neighbors = true
 
 			var direction : String = raycast.name
 			var wall_name : String = str("Wall" + direction)
@@ -18,4 +20,7 @@ func check_neighbors() -> void:
 					wall.queue_free()
 
 			raycast.queue_free()
+			
+	if !has_neighbors:
+		self.queue_free()
 	#print("Neighbors checked!")

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://douqhfxs8guef" path="res://textures/Tiles040_1K-JPG/Tiles040_1K-JPG_Roughness.jpg" id="4_87dsa"]
 [ext_resource type="Texture2D" uid="uid://btsv4tpbs0pee" path="res://textures/Wallpaper001B_1K-JPG/Wallpaper001B_1K-JPG_NormalGL.jpg" id="4_lk26i"]
 [ext_resource type="Texture2D" uid="uid://clomoedd077vx" path="res://textures/Wallpaper001B_1K-JPG/Wallpaper001B_1K-JPG_Roughness.jpg" id="5_yd5p2"]
+[ext_resource type="ArrayOccluder3D" uid="uid://cmufhr6e2f5nf" path="res://occs/kw_hospital_module_main.occ" id="10_87dsa"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rpvn2"]
 material = ExtResource("1_oyaeg")
@@ -256,6 +257,9 @@ mesh = SubResource("PlaneMesh_hwvv0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Walls/GrayWalls/WallTile8/StaticBody3D" unique_id=464489176]
 shape = SubResource("ConcavePolygonShape3D_vpa26")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="Base" unique_id=64837124]
+occluder = ExtResource("10_87dsa")
 
 [node name="Raycasts" type="Node3D" parent="." unique_id=181921459]
 
