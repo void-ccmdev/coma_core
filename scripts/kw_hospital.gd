@@ -14,14 +14,17 @@ func generate_level() -> void:
 	for x in level_scale_xz:
 		for z in level_scale_xz:
 			generate_module(cursor)
+
 			cursor.z += module_scale_xz
 
 		cursor.x += module_scale_xz
 		cursor.z = 0
 	
-	await get_tree().create_timer(0.1).timeout
-	delete_extra_walls()
+	module_container.get_child(0).mainstream_related = true
 	
+	await get_tree().create_timer(0.5).timeout
+	delete_extra_walls()
+
 	print("Level generated!")
 
 func generate_module(pos : Vector3) -> void: 
