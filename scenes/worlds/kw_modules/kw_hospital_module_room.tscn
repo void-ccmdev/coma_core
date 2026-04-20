@@ -129,11 +129,12 @@ data = PackedVector3Array(3.5, 0, 0.75, -3.5, 0, 0.75, 3.5, 0, -0.75, -3.5, 0, 0
 material = SubResource("StandardMaterial3D_06gqa")
 size = Vector2(7, 1.5)
 
-[node name="HospitalModuleRoom" type="Node3D" unique_id=1489112415 node_paths=PackedStringArray("raycasts", "end_walls")]
+[node name="HospitalModuleRoom" type="Node3D" unique_id=1489112415 node_paths=PackedStringArray("raycasts", "end_walls", "plr_spawn_spot")]
 script = ExtResource("1_hpv80")
 raycasts = NodePath("Raycasts")
 end_walls = NodePath("EndWalls")
 room_module = true
+plr_spawn_spot = NodePath("SpawnMarker")
 
 [node name="Base" type="Node3D" parent="." unique_id=1330062331]
 
@@ -472,3 +473,6 @@ mesh = SubResource("PlaneMesh_xub3k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndWalls/WallBack/MeshInstance3D2/StaticBody3D" unique_id=1242811441]
 shape = SubResource("ConcavePolygonShape3D_hwvv0")
+
+[node name="SpawnMarker" type="Marker3D" parent="." unique_id=576138527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 7)

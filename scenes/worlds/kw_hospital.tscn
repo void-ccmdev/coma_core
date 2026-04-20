@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="1_umswe"]
 [ext_resource type="Resource" uid="uid://d1sss6nperjoj" path="res://post_process_configs/pos_process_config1.tres" id="2_1yhfs"]
 [ext_resource type="PackedScene" uid="uid://x6h7f4cf0ae3" path="res://scenes/worlds/kw_modules/kw_hospital_module_main.tscn" id="2_bvvs8"]
-[ext_resource type="PackedScene" uid="uid://b6ko3ejoj5x3l" path="res://scenes/worlds/kw_modules/kw_hospital_module_corner.tscn" id="3_pglqd"]
 [ext_resource type="PackedScene" uid="uid://bnfqgrjqrtopm" path="res://scenes/worlds/kw_modules/kw_hospital_module_straight.tscn" id="4_5ak55"]
 [ext_resource type="PackedScene" uid="uid://b4tcs13niy5" path="res://scenes/worlds/kw_modules/kw_hospital_module_room.tscn" id="5_5ak55"]
 [ext_resource type="PackedScene" uid="uid://c8c005i0y36v8" path="res://scenes/player.tscn" id="5_ptbb2"]
@@ -35,12 +34,13 @@ adjustment_brightness = 1.02
 adjustment_contrast = 1.11
 adjustment_saturation = 1.09
 
-[node name="HospitalLevel" type="Node3D" unique_id=1151958966 node_paths=PackedStringArray("module_container")]
+[node name="HospitalLevel" type="Node3D" unique_id=1151958966 node_paths=PackedStringArray("module_container", "player")]
 script = ExtResource("1_1yhfs")
-modules = Array[PackedScene]([ExtResource("2_bvvs8"), ExtResource("3_pglqd"), ExtResource("4_5ak55"), ExtResource("2_bvvs8"), ExtResource("2_bvvs8"), ExtResource("5_5ak55")])
+modules = Array[PackedScene]([ExtResource("2_bvvs8"), ExtResource("5_5ak55"), ExtResource("4_5ak55"), ExtResource("2_bvvs8"), ExtResource("2_bvvs8"), ExtResource("2_bvvs8")])
 module_container = NodePath("Env/Level")
-level_scale_xz = 25
+level_scale_xz = 15
 module_scale_xz = 25
+player = NodePath("Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2068054445]
 environment = SubResource("Environment_pglqd")

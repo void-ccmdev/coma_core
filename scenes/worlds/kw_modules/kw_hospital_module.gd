@@ -6,6 +6,7 @@ class_name kw_hospital_module
 @export var has_neighbors : bool
 @export var room_module : bool
 @export var mainstream_related : bool = false
+@export var plr_spawn_spot : Marker3D
 
 func check_neighbors() -> void:
 	for raycast : RayCast3D in raycasts.get_children():
