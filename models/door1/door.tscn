@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d20nr58vtt87v"]
 
 [ext_resource type="PackedScene" uid="uid://dp2troej6vq87" path="res://models/door1/door1.glb" id="1_vyj2i"]
+[ext_resource type="Script" uid="uid://c184yopf8qtyb" path="res://scripts/door.gd" id="2_5wr4k"]
 
-[node name="Door" unique_id=1403163758 instance=ExtResource("1_vyj2i")]
+[node name="Door" unique_id=1403163758 groups=["Interactable"] instance=ExtResource("1_vyj2i")]
+script = ExtResource("2_5wr4k")
