@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="11_tkc5g"]
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="12_2lg2o"]
 [ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="14_mu7u2"]
+[ext_resource type="PackedScene" uid="uid://d20nr58vtt87v" path="res://models/door1/door.tscn" id="18_d4ekg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wfq33"]
 material = ExtResource("5_mu7u2")
@@ -372,3 +373,7 @@ script = ExtResource("14_mu7u2")
 fade_color = Color(0, 0, 0, 1)
 fade_on_load = true
 metadata/_custom_type_script = "uid://g3ngbum2ke1y"
+
+[node name="Door" parent="." unique_id=1403163758 instance=ExtResource("18_d4ekg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+closed = true

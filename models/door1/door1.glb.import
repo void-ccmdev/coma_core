@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/door1.glb-1db25cdad31fec3508db19663db59c7c.sc
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true

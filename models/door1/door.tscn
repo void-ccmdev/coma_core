@@ -2,6 +2,33 @@
 
 [ext_resource type="PackedScene" uid="uid://dp2troej6vq87" path="res://models/door1/door1.glb" id="1_vyj2i"]
 [ext_resource type="Script" uid="uid://c184yopf8qtyb" path="res://scripts/door.gd" id="2_5wr4k"]
+[ext_resource type="Texture2D" uid="uid://1mjb0fja654s" path="res://models/door1/door1_door_texture.jpg" id="3_ve8ge"]
 
-[node name="Door" unique_id=1403163758 groups=["Interactable"] instance=ExtResource("1_vyj2i")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7x7m"]
+albedo_texture = ExtResource("3_ve8ge")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve8ge"]
+albedo_texture = ExtResource("3_ve8ge")
+texture_filter = 0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wspnp"]
+data = PackedVector3Array(-0.9045623, 0, 0.030503988, -0.9045623, 1.9569885, -0.030503988, -0.9045623, 1.9569885, 0.030503988, -0.9045623, 0, 0.030503988, -0.9045623, 0, -0.030503988, -0.9045623, 1.9569885, -0.030503988, -0.9045623, 0, -0.030503988, 0.004562244, 1.9569885, -0.030503988, -0.9045623, 1.9569885, -0.030503988, -0.9045623, 0, -0.030503988, 0.004562244, 0, -0.030503988, 0.004562244, 1.9569885, -0.030503988, 0.004562244, 0, -0.030503988, 0.004562244, 1.9569885, 0.030503988, 0.004562244, 1.9569885, -0.030503988, 0.004562244, 0, -0.030503988, 0.004562244, 0, 0.030503988, 0.004562244, 1.9569885, 0.030503988, 0.004562244, 0, 0.030503988, -0.9045623, 1.9569885, 0.030503988, 0.004562244, 1.9569885, 0.030503988, 0.004562244, 0, 0.030503988, -0.9045623, 0, 0.030503988, -0.9045623, 1.9569885, 0.030503988, -0.9045623, 0, -0.030503988, 0.004562244, 0, 0.030503988, 0.004562244, 0, -0.030503988, -0.9045623, 0, -0.030503988, -0.9045623, 0, 0.030503988, 0.004562244, 0, 0.030503988, 0.004562244, 1.9569885, -0.030503988, -0.9045623, 1.9569885, 0.030503988, -0.9045623, 1.9569885, -0.030503988, 0.004562244, 1.9569885, -0.030503988, 0.004562244, 1.9569885, 0.030503988, -0.9045623, 1.9569885, 0.030503988)
+
+[node name="Door" unique_id=1519146443 node_paths=PackedStringArray("door_node", "interact_collison") groups=["Interactable"] instance=ExtResource("1_vyj2i")]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("2_5wr4k")
+door_node = NodePath("Door")
+message = "Door"
+interact_collison = NodePath("CollisionShape3D2")
+
+[node name="Frame" parent="." index="0" unique_id=1427526516]
+surface_material_override/0 = SubResource("StandardMaterial3D_s7x7m")
+
+[node name="Door" parent="." index="1" unique_id=1879551003]
+surface_material_override/0 = SubResource("StandardMaterial3D_ve8ge")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=185500062]
+transform = Transform3D(1.13, 0, 0, 0, 1.09, 0, 0, 0, 2.835, 0.5023481, -0.10423112, 0)
+shape = SubResource("ConcavePolygonShape3D_wspnp")

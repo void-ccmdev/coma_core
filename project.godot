@@ -112,6 +112,7 @@ dev_console_toggle={
 
 3d_physics/layer_1="World"
 3d_physics/layer_2="Entity"
+3d_physics/layer_3="Interactable"
 
 [physics]
 
