@@ -1,11 +1,13 @@
 extends Node3D
 
 @export var modules : Array[PackedScene]
+@export var exit_module : kw_hospital_module
 @export var module_container : Node3D
 @export var level_scale_xz : int
 @export var module_scale_xz : int
 @export var spawn_spot : Vector3
 @export var player : PlayerController
+
 
 var spawn_candidates : Array[kw_hospital_module]
 
