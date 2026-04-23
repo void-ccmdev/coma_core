@@ -4,12 +4,12 @@ class_name door
 @export var door_node : Node3D
 @export var message : String
 @export var closed : bool = false
+@export var locked: bool
 @export var interact_collison : CollisionShape3D
 @export var door_movement_duration : float = 0.5
 
 @export var open_rot_y : float = -105.0
 @export var close_rot_y : float = 0.0
-
 
 func _ready() -> void:
 	if closed:
@@ -18,10 +18,11 @@ func _ready() -> void:
 		open()
 
 func interact() -> void:
-	if closed:
-		open()
-	else:
-		close()
+	if !locked:
+		if closed:
+			open()
+		else:
+			close()
 
 func close() -> void:
 	var ts = get_tree().create_tween()

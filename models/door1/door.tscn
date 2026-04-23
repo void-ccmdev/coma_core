@@ -21,12 +21,13 @@ collision_mask = 0
 script = ExtResource("2_5wr4k")
 door_node = NodePath("Door")
 message = "Door"
+closed = true
 interact_collison = NodePath("CollisionShape3D2")
 
-[node name="Frame" parent="." index="0" unique_id=1427526516]
+[node name="Frame" parent="." index="0" unique_id=858394607]
 surface_material_override/0 = SubResource("StandardMaterial3D_s7x7m")
 
-[node name="Door" parent="." index="1" unique_id=1879551003]
+[node name="Door" parent="." index="1" unique_id=2083639421]
 surface_material_override/0 = SubResource("StandardMaterial3D_ve8ge")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=185500062]
