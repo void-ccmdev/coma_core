@@ -7,7 +7,7 @@ class_name door
 @export var interact_collison : CollisionShape3D
 @export var door_movement_duration : float = 0.5
 
-@export var open_rot_y : float = 105.0
+@export var open_rot_y : float = -105.0
 @export var close_rot_y : float = 0.0
 
 
