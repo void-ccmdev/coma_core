@@ -1,5 +1,5 @@
 extends StaticBody3D
-class_name door
+class_name Door
 
 @export var door_node : Node3D
 @export var message : String
@@ -23,6 +23,9 @@ func interact() -> void:
 			open()
 		else:
 			close()
+		
+	else:
+		message = "Locked"
 
 func close() -> void:
 	var ts = get_tree().create_tween()

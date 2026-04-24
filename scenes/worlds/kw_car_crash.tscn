@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnoyjupbgdh1p"]
 
-[ext_resource type="Script" uid="uid://xqbm57td1n57" path="res://scripts/kw_car_crash.gd" id="1_2qwpl"]
+[ext_resource type="Script" uid="uid://xqbm57td1n57" path="res://scripts/kw_scripts/kw_car_crash.gd" id="1_2qwpl"]
 [ext_resource type="Texture2D" uid="uid://itnsedvp10fu" path="res://textures/NightSkyHDRI001_1K_HDR.exr" id="1_ajjph"]
 [ext_resource type="Material" uid="uid://bl3d27fmoqcwr" path="res://materials/snow.material" id="1_leipc"]
 [ext_resource type="PackedScene" uid="uid://dc1qwvokpla41" path="res://scenes/worlds/kw_bedroom.tscn" id="2_a3qra"]

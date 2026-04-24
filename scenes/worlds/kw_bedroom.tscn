@@ -1,12 +1,61 @@
 [gd_scene format=3 uid="uid://dc1qwvokpla41"]
 
+[ext_resource type="Script" uid="uid://brobovje4yggv" path="res://addons/post_processing/node/post_process.gd" id="1_22m08"]
 [ext_resource type="Material" uid="uid://dp48vbalvb5ll" path="res://materials/wooden_tiles.material" id="1_80w3j"]
 [ext_resource type="PackedScene" uid="uid://c8c005i0y36v8" path="res://scenes/player.tscn" id="1_dbqcg"]
+[ext_resource type="Script" uid="uid://rdw6b5rcenst" path="res://scripts/kw_scripts/kw_bedroom.gd" id="1_et8in"]
+[ext_resource type="PackedScene" uid="uid://slntuiqexwsy" path="res://scenes/worlds/kw_debug.tscn" id="2_4lyyr"]
+[ext_resource type="Script" uid="uid://cal7vmnmw616a" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="2_22m08"]
 [ext_resource type="PackedScene" uid="uid://cwnbh47i0ekdy" path="res://scenes/debug_screen.tscn" id="2_h7enl"]
 [ext_resource type="Material" uid="uid://dbo6kvesdy5xw" path="res://materials/wall_plaster_white.material" id="2_wbswl"]
 [ext_resource type="PackedScene" uid="uid://d20nr58vtt87v" path="res://models/door1/door.tscn" id="3_2eey7"]
 [ext_resource type="PackedScene" uid="uid://q4kdnknoxaeq" path="res://scenes/pause_menu.tscn" id="3_80w3j"]
 [ext_resource type="Script" uid="uid://g3ngbum2ke1y" path="res://scripts/fade_box.gd" id="4_wbswl"]
+
+[sub_resource type="Gradient" id="Gradient_2eey7"]
+offsets = PackedFloat32Array(0.4573379, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bdjwe"]
+noise_type = 5
+seed = 18
+frequency = 0.0945
+fractal_lacunarity = 59.72
+fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2eey7"]
+width = 1536
+height = 1536
+noise = SubResource("FastNoiseLite_bdjwe")
+color_ramp = SubResource("Gradient_2eey7")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bdjwe"]
+panorama = SubResource("NoiseTexture2D_2eey7")
+
+[sub_resource type="Sky" id="Sky_22m08"]
+sky_material = SubResource("PanoramaSkyMaterial_bdjwe")
+
+[sub_resource type="Environment" id="Environment_2eey7"]
+background_mode = 2
+sky = SubResource("Sky_22m08")
+sky_custom_fov = 25.0
+ambient_light_source = 3
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_use_occlusion = true
+adjustment_enabled = true
+adjustment_brightness = 1.33
+adjustment_contrast = 1.16
+adjustment_saturation = 1.16
+
+[sub_resource type="Resource" id="Resource_et8in"]
+script = ExtResource("2_22m08")
+ChromaticAberration = true
+StrenghtCA = 0.575
+Vignette = true
+Grain = true
+GrainPower = 35
+metadata/_custom_type_script = "uid://cal7vmnmw616a"
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wbswl"]
 material = ExtResource("1_80w3j")
@@ -14,6 +63,10 @@ size = Vector2(10, 8)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2eey7"]
 data = PackedVector3Array(5, 0, 4, -5, 0, 4, 5, 0, -4, -5, 0, 4, -5, 0, -4, 5, 0, -4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_22m08"]
+material = ExtResource("2_wbswl")
+size = Vector2(10, 8)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2eey7"]
 material = ExtResource("2_wbswl")
@@ -40,7 +93,26 @@ data = PackedVector3Array(1, 0, 1.75, -1, 0, 1.75, 1, 0, -1.75, -1, 0, 1.75, -1,
 material = ExtResource("2_wbswl")
 size = Vector2(1, 1.5)
 
-[node name="Bedroom" type="Node3D" unique_id=1672493786]
+[node name="Bedroom" type="Node3D" unique_id=1672493786 node_paths=PackedStringArray("trigger_door", "player", "post_process", "fade_box", "cs_camera", "outside_marker", "inside_marker", "cs_camera_container")]
+script = ExtResource("1_et8in")
+trigger_door = NodePath("Env/Bedroom/Door")
+player = NodePath("Player")
+post_process = NodePath("PostProcess")
+fade_box = NodePath("FadeBox")
+next_scene = ExtResource("2_4lyyr")
+cs_camera = NodePath("Cutscene/CutsceneCameraContainer/CutsceneCamera")
+outside_marker = NodePath("Cutscene/Markers/OutsideMarker")
+inside_marker = NodePath("Cutscene/Markers/InsideMarker")
+cs_camera_container = NodePath("Cutscene/CutsceneCameraContainer")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1614256786]
+environment = SubResource("Environment_2eey7")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=1728656135]
+script = ExtResource("1_22m08")
+configuration = SubResource("Resource_et8in")
+dynamically_update = false
+metadata/_custom_type_script = "uid://brobovje4yggv"
 
 [node name="Env" type="Node3D" parent="." unique_id=97966836]
 
@@ -54,6 +126,10 @@ visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Bedroom/Floor/StaticBody3D" unique_id=1700987507]
 shape = SubResource("ConcavePolygonShape3D_2eey7")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Env/Bedroom" unique_id=724349624]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 3.5, 0)
+mesh = SubResource("PlaneMesh_22m08")
 
 [node name="Walls" type="Node3D" parent="Env/Bedroom" unique_id=1974002052]
 
@@ -192,17 +268,53 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_22m08")
 
 [node name="Door" parent="Env/Bedroom" unique_id=1519146443 instance=ExtResource("3_2eey7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 4)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.5, 0, 4)
 
 [node name="Door2" parent="Env/Bedroom" unique_id=1572691569 instance=ExtResource("3_2eey7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 2.5)
+locked = true
+
+[node name="Lights" type="Node3D" parent="Env/Bedroom" unique_id=1870068362]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Env/Bedroom/Lights" unique_id=1422298917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -2)
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Env/Bedroom/Lights/OmniLight3D" unique_id=1433013861]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Env/Bedroom/Lights" unique_id=1265331938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6279068, 3, 2.4654374)
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Env/Bedroom/Lights/OmniLight3D2" unique_id=645166726]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Env/Bedroom/Lights" unique_id=1325673451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -2)
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Env/Bedroom/Lights/OmniLight3D3" unique_id=2067672381]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Env/Bedroom/Lights" unique_id=782325246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 2)
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Env/Bedroom/Lights/OmniLight3D4" unique_id=1924375497]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1996494235 instance=ExtResource("1_dbqcg")]
+can_sprint = false
+can_jump = false
+walk_speed = 1.5
 
-[node name="DebugScreen" parent="." unique_id=822355395 node_paths=PackedStringArray("player") instance=ExtResource("2_h7enl")]
-player = NodePath("../Player")
-
-[node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("3_80w3j")]
+[node name="Flashlight" parent="Player/CameraController" parent_id_path=PackedInt32Array(1996494235, 313063645) index="1" unique_id=2133561910]
+unlocked = false
 
 [node name="FadeBox" type="ColorRect" parent="." unique_id=819996412]
 anchors_preset = 15
@@ -216,3 +328,28 @@ script = ExtResource("4_wbswl")
 fade_color = Color(0, 0, 0, 1)
 fade_on_load = true
 metadata/_custom_type_script = "uid://g3ngbum2ke1y"
+
+[node name="DebugScreen" parent="." unique_id=822355395 node_paths=PackedStringArray("player") instance=ExtResource("2_h7enl")]
+player = NodePath("../Player")
+
+[node name="PauseMenu" parent="." unique_id=1080143956 instance=ExtResource("3_80w3j")]
+
+[node name="Cutscene" type="Node3D" parent="." unique_id=556826207]
+
+[node name="Markers" type="Node3D" parent="Cutscene" unique_id=1533580346]
+
+[node name="OutsideMarker" type="Marker3D" parent="Cutscene/Markers" unique_id=1544776550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.5022727, 6.8689156)
+gizmo_extents = 1.0
+
+[node name="InsideMarker" type="Marker3D" parent="Cutscene/Markers" unique_id=863282516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.5022727, 2.9694633)
+gizmo_extents = 1.0
+
+[node name="CutsceneCameraContainer" type="Node3D" parent="Cutscene" unique_id=540851436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.547, 1.399, 2.96)
+
+[node name="CutsceneCamera" type="Camera3D" parent="Cutscene/CutsceneCameraContainer" unique_id=252987371]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.00046801567, 0.000338912, -0.00037693977)
+
+[editable path="Player"]
