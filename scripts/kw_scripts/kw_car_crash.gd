@@ -12,8 +12,13 @@ extends Node3D
 
 @export var next_scene : PackedScene
 
+@export_category("AUDIO")
+@export var crash_audio : RaytracedAudioPlayer3D
+@export var ambiance_audio : RaytracedAudioPlayer3D
+@export var honk_audio : AudioStreamPlayer3D
 
 func car_movement():
+	ambiance_audio.play()
 	var ts = get_tree().create_tween()
 	ts.tween_property(car_node, "global_position", trigger_pos, 0.75);
 	if plr_hit:
@@ -35,8 +40,10 @@ func _process(_delta: float) -> void:
 		get_tree().change_scene_to_packed(next_scene)
 
 func _on_car_trigger_body_entered(body: Node3D) -> void:
-	var ts = get_tree().create_tween()
+	
 	if body.is_in_group("Player") && is_inside_tree():
 		plr_hit = true
-		ts.kill()
-		ts.stop() 	
+		ambiance_audio.stop()
+		honk_audio.play()
+		await get_tree().create_timer(0.1).timeout
+		crash_audio.play()

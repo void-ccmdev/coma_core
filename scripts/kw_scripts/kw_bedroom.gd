@@ -12,12 +12,20 @@ extends Node3D
 @export var cutscene_triggered : bool = false
 @export var cs_camera_container : Node3D
 
+@export var door_audio : RaytracedAudioPlayer3D
+@export var wind_audio : AudioStreamPlayer
+
 func _ready() -> void:
-	pass
+	await get_tree().create_timer(2.25).timeout
+	door_audio.play()
 
 func _process(_delta: float) -> void:
 	if !trigger_door.closed:
 		cutscene()
+		door_audio.stop()
+		if !wind_audio.playing:
+			await get_tree().create_timer(0.15).timeout
+			wind_audio.play()
 
 func cutscene() -> void:
 	if !cutscene_triggered:
@@ -31,9 +39,9 @@ func cutscene() -> void:
 		await get_tree().create_timer(0.2).timeout
 
 		var ts = get_tree().create_tween()
-		ts.tween_property(cs_camera_container, "global_position", outside_marker.global_position, 0.6)
+		ts.tween_property(cs_camera_container, "global_position", outside_marker.global_position, 0.6).set_trans(ts.TRANS_CUBIC)
 		ts.set_parallel()
-		ts.tween_property(cs_camera_container, "rotation", Vector3(0,0, deg_to_rad(25)), 0.4)
+		ts.tween_property(cs_camera_container, "rotation", Vector3(0,0, deg_to_rad(25)), 0.4).set_trans(ts.TRANS_CUBIC)
 	else:
 		await get_tree().create_timer(0.5).timeout
 
