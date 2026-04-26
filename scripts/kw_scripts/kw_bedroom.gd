@@ -13,7 +13,8 @@ extends Node3D
 @export var cs_camera_container : Node3D
 
 @export var door_audio : RaytracedAudioPlayer3D
-@export var wind_audio : AudioStreamPlayer
+@export var wind1_audio : AudioStreamPlayer
+@export var wind2_audio : AudioStreamPlayer
 
 func _ready() -> void:
 	await get_tree().create_timer(2.25).timeout
@@ -23,9 +24,13 @@ func _process(_delta: float) -> void:
 	if !trigger_door.closed:
 		cutscene()
 		door_audio.stop()
-		if !wind_audio.playing:
+		if !wind1_audio.playing:
 			await get_tree().create_timer(0.15).timeout
-			wind_audio.play()
+			wind1_audio.play()
+		if !wind2_audio.playing:
+			await get_tree().create_timer(0.15).timeout
+			wind2_audio.play()
+
 
 func cutscene() -> void:
 	if !cutscene_triggered:

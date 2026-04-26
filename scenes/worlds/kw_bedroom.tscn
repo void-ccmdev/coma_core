@@ -96,7 +96,7 @@ data = PackedVector3Array(1, 0, 1.75, -1, 0, 1.75, 1, 0, -1.75, -1, 0, 1.75, -1,
 material = ExtResource("2_wbswl")
 size = Vector2(1, 1.5)
 
-[node name="Bedroom" type="Node3D" unique_id=1672493786 node_paths=PackedStringArray("trigger_door", "player", "post_process", "fade_box", "cs_camera", "outside_marker", "inside_marker", "cs_camera_container", "door_audio", "wind_audio")]
+[node name="Bedroom" type="Node3D" unique_id=1672493786 node_paths=PackedStringArray("trigger_door", "player", "post_process", "fade_box", "cs_camera", "outside_marker", "inside_marker", "cs_camera_container", "door_audio", "wind1_audio", "wind2_audio")]
 script = ExtResource("1_et8in")
 trigger_door = NodePath("Env/Bedroom/Door")
 player = NodePath("Player")
@@ -108,7 +108,8 @@ outside_marker = NodePath("Cutscene/Markers/OutsideMarker")
 inside_marker = NodePath("Cutscene/Markers/InsideMarker")
 cs_camera_container = NodePath("Cutscene/CutsceneCameraContainer")
 door_audio = NodePath("Audio/DoorSFX")
-wind_audio = NodePath("Audio/Wind")
+wind1_audio = NodePath("Audio/Wind")
+wind2_audio = NodePath("Audio/Wind2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1614256786]
 environment = SubResource("Environment_2eey7")
@@ -368,8 +369,14 @@ metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 
 [node name="Wind" type="AudioStreamPlayer" parent="Audio" unique_id=1293925085]
 stream = ExtResource("14_lv725")
-volume_db = 15.0
-pitch_scale = 3.0
+volume_db = 24.0
+pitch_scale = 0.46
+parameters/looping = true
+
+[node name="Wind2" type="AudioStreamPlayer" parent="Audio" unique_id=528796032]
+stream = ExtResource("14_lv725")
+volume_db = 24.0
+pitch_scale = 3.62
 parameters/looping = true
 
 [editable path="Player"]
